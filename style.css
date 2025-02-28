@@ -122,3 +122,13 @@ button:focus, .social-links a:focus {
         gap: 20px;
     }
 }
+
+.beta-text {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 5px;
+}
