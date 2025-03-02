@@ -8,7 +8,7 @@
 body {
     background: url('back.png') no-repeat center center fixed;
     background-size: cover;
-    font-family: fantasy;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     color: white;
     padding: 0 15px;
@@ -125,6 +125,19 @@ button:focus, .social-links a:focus {
 }
 
 @media (max-width: 768px) {
+    #challengeBox {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .show-challenge #challengeBox {
+        display: block;
+        opacity: 1;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        height: auto;
+        transition: opacity 0.3s ease-in-out;
+    }
     .container {
         margin-top: 100px;
         padding: 15px;

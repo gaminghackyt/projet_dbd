@@ -94,8 +94,16 @@ function getRandomChallenge() {
 
 document.getElementById("newChallengeBtn").addEventListener("click", function() {
     const challengeBox = document.getElementById("challengeBox");
+    const container = document.querySelector(".container");
+
+    container.classList.add("show-challenge");
+
     const challenge = getRandomChallenge();
     challengeBox.textContent = challenge;
+
+    setTimeout(() => {
+        container.classList.remove("show-challenge");
+    }, 100000);
 });
 
 function displayChallenge() {
