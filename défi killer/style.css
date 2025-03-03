@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('surv.webp') no-repeat center center fixed;
+    background: url('killer.webp') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
@@ -163,17 +163,14 @@ button:focus, .social-links a:focus {
         font-size: 16px;
         gap: 10px;
     }
+    .beta-text {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+    }
 }
 
-.beta-text {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: whitesmoke;
-    padding: 5px;
-    border-radius: 5px;
-}
 
 .filter-menu {
     display: none;
