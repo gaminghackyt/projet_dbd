@@ -181,3 +181,43 @@ button:focus, .social-links a:focus {
     padding: 5px;
     border-radius: 5px;
 }
+
+.filter-menu {
+    display: none;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+
+#filterBtn {
+    background-color: #ff4444;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+#filterBtn:hover {
+    background-color: #ff2222;
+}
+
+#filterMenu select {
+    background-color: #fff;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 16px;
+}
+
+.choix {
+    width: 5%;
+}

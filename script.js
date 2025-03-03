@@ -134,18 +134,23 @@ document.getElementById("newChallengeBtn").addEventListener("click", () => {
     displayChallenge();
 });
 
-
 // 🎥 Twitch Bot : Écoute le chat pour !defi
 const client = new tmi.Client({
-    connection: { reconnect: true },
-    channels: ["spectralreid"]
+    options: {debug:true},
+    identity: {
+        username: 'spectralBot', //nom du bot 
+        password: 'oauth:ud5nuhl9trae2u79sfebanxj3c2utm' // jeton d'accès
+    },
+    channels: [ 'spectralreid' ]
 });
 
 client.connect();
 
-client.on("message", (channel, tags, message, self) => {
+client.on('message', (channel, tags, message, self) => {
+    // console.log(`${tags['spectralreid']}: ${message}`)
     if (self) return;
     if (message.toLowerCase() === "!defi") {
-        displayChallenge();
+        client.say(channel, `@${tags.username}, heya!`)
+        // displayChallenge();
     }
 });
