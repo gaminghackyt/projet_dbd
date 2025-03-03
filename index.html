@@ -3,43 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Défis Dead by Daylight</title>
+    <title>Projet dead by daylight</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="beta-text">
-        Bêta 1.0.3
+        Bêta 1.0.4
     </div>
-    <div class="container">
-        <h1 class="text">Défi Dead by Daylight 🎮</h1>
-        <button id="newChallengeBtn">Nouveau Défi</button>
-        <div id="challengeBox">Aucun défi en cours.</div>
+    <div id="loading-screen">
+        <div id="loading-text">Spectralreid</div>
     </div>
-    <div>
-    </div>
-    <div class="niveaux">
-        <h2>Il y'a un total de 78 défis soit 26 par niveaux de difficulté. Voici donc quelque explication sur le niveau de difficulté des défis :</h2><br><br><br><br>
-        <h3>niveau 1 : Les défis faciles sont basés sur le niveau débutant.</h3><br><br>
-        <h3>niveau 2 : Les défis moyens sont inspirés par chaque lettre de l'alphabet.</h3><br><br>
-        <h3>niveau 3 : Les défis difficiles sont basés sur la stratégie et une bonne maîtrise du jeu.</h3>
+    <div id="main-content" style="display: none;">
+        <div class="container">
+            <a href="défi survivant/index.html" class="card">
+                <img src="survivant.jpeg" alt="survivant">
+                <p>Défi survivant</p>
+            </a>
+            <a href="#" class="card">
+                <img src="tueur.png" alt="tueur">
+                <p>Défi tueur</p>
+            </a>
+            <a href="#" class="card">
+                <img src="perkroul.jpg" alt="perk roulette">
+                <p>Perk roulette</p>
+            </a>
+        </div>
     </div>
     <footer>
         <div class="social-links">
             <a href="https://www.twitch.tv/spectralreid" target="_blank">
-                <img src="twitch.png" alt="Twitch"> spectralreid
+                <img src="défi survivant/twitch.png" alt="Twitch"> spectralreid
             </a>
             <a href="https://www.youtube.com/@spectralreid" target="_blank">
-                <img src="youtube.png" alt="YouTube"> @spectralreid
+                <img src="défi survivant/youtube.png" alt="YouTube"> @spectralreid
             </a>
             <a href="https://x.com/gaminghack_yt" target="_blank">
-                <img src="x.png" alt="X"> @spectralreid
+                <img src="défi survivant/x.png" alt="X"> @spectralreid
             </a>
             <a href="https://discord.gg/9fkCVRvyrr" target="_blank">
-                <img src="discord.png" alt="discord"> Gamer Zone
+                <img src="défi survivant/discord.png" alt="discord"> Gamer Zone
             </a>
         </div>
+        <p>© 2024 SpectralReid - Tous droits réservés</p>
     </footer>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tmi.js/1.8.5/tmi.min.js"></script>
 <script src="script.js"></script>
 </html>
