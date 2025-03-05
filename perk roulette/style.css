@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    background: url(Background-Main-default.jpg) no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    padding: 0 15px;
+    color: whitesmoke;
+    margin: 0;
+}
