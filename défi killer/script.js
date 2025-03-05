@@ -138,8 +138,8 @@ document.getElementById("newChallengeBtn").addEventListener("click", () => {
 const client = new tmi.Client({
     options: {debug:true},
     identity: {
-        username: 'spectralBot', //nom du bot 
-        password: 'oauth:ud5nuhl9trae2u79sfebanxj3c2utm' // jeton d'accès
+        username: 'TwiCodageApp', //nom du bot 
+        password: 'oauth:3spbf57rxhgru1mgr74semp420y5ny' // jeton d'accès
     },
     channels: [ 'spectralreid' ]
 });
@@ -149,7 +149,7 @@ client.connect();
 client.on('message', (channel, tags, message, self) => {
     // console.log(`${tags['spectralreid']}: ${message}`)
     if (self) return;
-    if (message.toLowerCase() === "!defi") {
+    if (message.toLowerCase() === "!defisurv") {
         client.say(channel, `@${tags.username}, heya!`)
         // displayChallenge();
     }
