@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- <header>
+        <div class="top-left-buttons">
+            <button id="toggle-theme">🌙 Mode Sombre</button>
+            <button id="toggle-sound">🔇 Couper le son</button>
+        </div>
+    </header> -->
     <div id="loading-screen">
         <div id="loading-text">Spectralreid</div>
     </div>
@@ -32,6 +38,10 @@
             <div id="twitch-status">Chargement du status...</div>
             <iframe id="twitch-player" src="" frameborder="0" allowfullscreen></iframe>
         </div>
+        <!-- <section id="dbd-news">
+            <h2>📰 Actualités Dead by Daylight</h2>
+            <div id="news-feed">Chargement des actualités...</div>
+        </section> -->
         <footer>
             <div class="social-links">
                 <a href="https://www.twitch.tv/spectralreid" target="_blank">
@@ -50,6 +60,11 @@
             <p>© 2025 Spectralreid - Tous droits réservés</p>
         </footer>
     </div>
+    <audio id="background-audio" loop>
+        <source src="intro.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
 </body>
 <script src="script.js"></script>
+<script src="audio.js" defer></script>
 </html>

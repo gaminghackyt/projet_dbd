@@ -3,6 +3,7 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+    transition: all 1s ease-in-out;
 }
 
 body {
@@ -12,6 +13,27 @@ body {
     text-align: center;
     color: whitesmoke;
     padding: 0 15px;
+}
+
+body.light-mode {
+    background: url(back1.webp) no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+}
+
+body.light-mode #toggle-theme {
+    background: whitesmoke;
+    color: black;
+}
+
+.fade-effect {
+    animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
 }
 
 #loading-screen {
@@ -159,6 +181,36 @@ footer {
     transition: opacity 0.5s ease-in-out;
 }
 
+#toggle-sound:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.top-left-buttons {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.top-left-buttons button {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.top-left-buttons button:hover {
+    background: red;
+    transform: scale(1.05);
+}
+
 /* uniquement pour les nouvelles sorties */
 .badge {
     position: absolute;
@@ -184,6 +236,27 @@ footer {
     0% {transform: scale(1) rotate(-20deg);}
     50% {transform: scale(1.2) rotate(-20deg);}
     100% {transform: scale(1) rotate(-20deg);}
+}
+
+#dbd-news {
+    background: rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#dbd-news h2 {
+    margin-bottom: 15px;
+}
+
+#news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* uniquement pour les prochaines sorties sans date prévu */

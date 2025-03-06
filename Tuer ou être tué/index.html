@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuer ou être tué ?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🔥 Tuer ou être tué ? 🔪</h1>
+    </header>
+    <section id="quiz">
+        <div id="quiz-container">
+            <div id="question-counter">Question 1 / 35</div>
+            <div id="quiz">
+                <p id="question-text">Chargement de la question...</p><br><br>
+                <form id="quiz-form">
+                    <div id="answers"></div>
+                    <button type="submit">Suivant</button>
+                </form>
+            </div>
+            <div id="result" style="display: none;">
+                <button onclick="restartQuiz()">Recommencer</button>
+            </div>
+        </div>
+    </section>
+    <section id="result-container" style="display: none;">
+        <h2>🩸 Résultat :</h2>
+        <img id="result-img" src="" alt="Résultat">
+        <p id="result-text"></p>
+        <a href="index.html">Rejouer</a>
+    </section>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.twitch.tv/spectralreid" target="_blank">
+                <img src="/défi survivant/twitch.png" alt="Twitch"> spectralreid
+            </a>
+            <a href="https://www.youtube.com/@spectralreid" target="_blank">
+                <img src="/défi survivant/youtube.png" alt="YouTube"> @spectralreid
+            </a>
+            <a href="https://x.com/gaminghack_yt" target="_blank">
+                <img src="/défi survivant/x.png" alt="X"> @spectralreid
+            </a>
+            <a href="https://discord.gg/9fkCVRvyrr" target="_blank">
+                <img src="/défi survivant/discord.png" alt="discord"> Gamer Zone
+            </a>
+        </div>
+        <p>© 2025 Spectralreid - Tous droits réservés</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
