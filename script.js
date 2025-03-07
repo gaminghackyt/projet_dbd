@@ -97,6 +97,25 @@ window.addEventListener("load", checkTwitchLive);
 //     document.body.classList.remove("fade-out");
 // });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const links = document.querySelectorAll(".container-un a");
+
+//     links.forEach(link => {
+//         link.addEventListener("click", function (event) {
+//             event.preventDefault();
+//             const href = this.href;
+
+//             document.body.classList.add("fade-out");
+
+//             setTimeout(() => {
+//                 window.location.href = href;
+//             }, 500);
+//         });
+//     });
+
+//     document.body.classList.remove("fade-out");
+// });
+
 // const themeButton = document.getElementById("toggle-theme");
 // const body = document.body;
 
@@ -162,7 +181,7 @@ window.addEventListener("load", checkTwitchLive);
 // window.addEventListener("load", fetchDBDNews);
 
 // timer uniquement si une sortie est prévu!!!
-const releaseDate = new Date("2025-03-08T21:00:00").getTime();
+const releaseDate = new Date("2025-03-09T00:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();

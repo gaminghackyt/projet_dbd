@@ -76,6 +76,13 @@ body.light-mode #toggle-theme {
     margin-top: 50px;
 }
 
+.container-un {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
 .card {
     width: 250px;
     text-align: center;
@@ -143,6 +150,10 @@ footer {
         padding: 15px;
     }
     .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-un {
         flex-direction: column;
         align-items: center;
     }
