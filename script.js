@@ -78,130 +78,130 @@ async function checkTwitchLive() {
 
 window.addEventListener("load", checkTwitchLive);
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const links = document.querySelectorAll(".container a");
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".container a");
 
-//     links.forEach(link => {
-//         link.addEventListener("click", function (event) {
-//             event.preventDefault();
-//             const href = this.href;
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const href = this.href;
 
-//             document.body.classList.add("fade-out");
+            document.body.classList.add("fade-out");
 
-//             setTimeout(() => {
-//                 window.location.href = href;
-//             }, 500);
-//         });
-//     });
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
 
-//     document.body.classList.remove("fade-out");
-// });
+    document.body.classList.remove("fade-out");
+});
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const links = document.querySelectorAll(".container-un a");
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".container-un a");
 
-//     links.forEach(link => {
-//         link.addEventListener("click", function (event) {
-//             event.preventDefault();
-//             const href = this.href;
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const href = this.href;
 
-//             document.body.classList.add("fade-out");
+            document.body.classList.add("fade-out");
 
-//             setTimeout(() => {
-//                 window.location.href = href;
-//             }, 500);
-//         });
-//     });
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
 
-//     document.body.classList.remove("fade-out");
-// });
+    document.body.classList.remove("fade-out");
+});
 
-// const themeButton = document.getElementById("toggle-theme");
-// const body = document.body;
+const themeButton = document.getElementById("toggle-theme");
+const body = document.body;
 
-// if (localStorage.getItem("theme") === "light") {
-//     body.classList.add("light-mode");
-//     themeButton.textContent = "🌑 Mode Sombre";
-// }
+if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-mode");
+    themeButton.textContent = "🌑 Mode Sombre";
+}
 
-// themeButton.addEventListener("click", () => {
-//     body.classList.add("fade-effect");
-//     body.classList.toggle("light-mode");
+themeButton.addEventListener("click", () => {
+    body.classList.add("fade-effect");
+    body.classList.toggle("light-mode");
 
-//     setTimeout(() => {
-//         body.classList.remove("fade-effect");
-//     }, 1000);
+    setTimeout(() => {
+        body.classList.remove("fade-effect");
+    }, 1000);
 
-//     if (body.classList.contains("light-mode")) {
-//         localStorage.setItem("theme", "light");
-//         themeButton.textContent = "🌑 Mode Sombre";
-//     } else {
-//         localStorage.setItem("theme", "dark");
-//         themeButton.textContent = "🌙 Mode Clair";
-//     }
-// });
+    if (body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+        themeButton.textContent = "🌑 Mode Sombre";
+    } else {
+        localStorage.setItem("theme", "dark");
+        themeButton.textContent = "🌙 Mode Clair";
+    }
+});
 
-// window.addEventListener("scroll", function () {
-//     const navbar = document.querySelector(".navbar");
-//     if (window.scrollY > 50) {
-//         navbar.style.background = "rgba(0, 0, 0, 0.8)";
-//     } else {
-//         navbar.style.background = "url('background-navbar.jpg') no-repeat center center/cover";
-//     }
-// });
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        navbar.style.background = "rgba(0, 0, 0, 0.8)";
+    } else {
+        navbar.style.background = "url('background-navbar.jpg') no-repeat center center/cover";
+    }
+});
 
-// async function fetchDBDNews() {
-//     const newsFeed = document.getElementById("news-feed");
+async function fetchDBDNews() {
+    const newsFeed = document.getElementById("news-feed");
 
-//     try {
-//         const response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=https://nitter.net/DeadByBHVR/rss");
-//         const data = await response.json();
+    try {
+        const response = await fetch("https://api.rss2json.com/v1/api.json?rss_url=https://nitter.net/DeadByBHVR/rss");
+        const data = await response.json();
 
-//         if (data.items && data.items.length > 0) {
-//             newsFeed.innerHTML = "";
+        if (data.items && data.items.length > 0) {
+            newsFeed.innerHTML = "";
 
-//             data.items.slice(0, 5).forEach(tweet => {
-//                 const tweetElement = document.createElement("div");
-//                 tweetElement.classList.add("tweet");
-//                 tweetElement.innerHTML = `
-//                     <p>${tweet.title}</p>
-//                     <a href="${tweet.link}" target="_blank">Voir sur Twitter</a>
-//                 `;
-//                 newsFeed.appendChild(tweetElement);
-//             });
-//         } else {
-//             newsFeed.innerHTML = "Aucune actualité trouvée.";
-//         }
-//     } catch (error) {
-//         console.error("Erreur lors de la récupération des actualités :", error);
-//         newsFeed.innerHTML = "Impossible de charger les actualités.";
-//     }
-// }
+            data.items.slice(0, 5).forEach(tweet => {
+                const tweetElement = document.createElement("div");
+                tweetElement.classList.add("tweet");
+                tweetElement.innerHTML = `
+                    <p>${tweet.title}</p>
+                    <a href="${tweet.link}" target="_blank">Voir sur Twitter</a>
+                `;
+                newsFeed.appendChild(tweetElement);
+            });
+        } else {
+            newsFeed.innerHTML = "Aucune actualité trouvée.";
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des actualités :", error);
+        newsFeed.innerHTML = "Impossible de charger les actualités.";
+    }
+}
 
 // window.addEventListener("load", fetchDBDNews);
 
 // timer uniquement si une sortie est prévu!!!
-const releaseDate = new Date("2025-03-09T00:00:00").getTime();
+// const releaseDate = new Date("2025-03-09T00:00:00").getTime();
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const timeLeft = releaseDate - now;
+// function updateCountdown() {
+//     const now = new Date().getTime();
+//     const timeLeft = releaseDate - now;
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+//     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+//     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    const countdownElement = document.getElementById("countdown");
+//     const countdownElement = document.getElementById("countdown");
 
-    if (timeLeft > 0) {
-        countdownElement.innerHTML = `Perk Roulette disponible dans : ${days}j ${hours}h ${minutes}m ${seconds}s`;
-    } else {
-        countdownElement.innerHTML = "🎉 La mise à jour va maintenant être disponible !";
-        clearInterval(countdownInterval);
-    }
-}
+//     if (timeLeft > 0) {
+//         countdownElement.innerHTML = `Perk Roulette disponible dans : ${days}j ${hours}h ${minutes}m ${seconds}s`;
+//     } else {
+//         countdownElement.innerHTML = "🎉 La mise à jour va maintenant être disponible !";
+//         clearInterval(countdownInterval);
+//     }
+// }
 
-const countdownInterval = setInterval(updateCountdown, 1000);
+// const countdownInterval = setInterval(updateCountdown, 1000);
 
-updateCountdown();
+// updateCountdown();

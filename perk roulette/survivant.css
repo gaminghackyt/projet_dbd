@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(Background-Main-default.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.slot-machine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    width: auto;
+}
+
+.slot-container {
+    flex-direction: column;
+    margin-top: 13%;
+}
+
+.perk-name {
+    margin-top: 90%;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slot, .background {
+    width: 200px;
+    height: 200px;
+    background: url(perkBg.png)no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.slot img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.rolling {
+    animation: spin 0.5s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.final {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out;
+}
+
+.home-button {
+    background: url('button_background_back.png') no-repeat;
+    background-size: cover;
+    width: 260px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+}
+
+.home-button:hover {
+    background-color: darkcyan;
+}
+
+.settings {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#settings-menu {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+#settings-menu ul {
+    max-height: 100%;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#perk-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#perk-list li img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#settings-btn {
+    background: url(button_background_back_reglage.png) no-repeat;
+    background-size: cover;
+    width: 260px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#settings-btn:hover {
+    background-color: red;
+}
+
+#save-settings {
+    background-color: blue;
+    border: none;
+    color: white;
+    width: 10%;
+    padding: 5px;
+}
+
+#save-settings:hover {
+    background-color: darkred;
+}
+
+.info {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    width: 550px;
+    margin-left: 27%;
+    margin-top: 20px;
+}
+
+.info img {
+    width: 3%;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+    .slot-container{
+        margin-top: 50%;
+    }
+    .slot-machine {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .slot {
+        width: 120px;
+        height: 120px;
+    }
+    .perk-name {
+        font-size: 14px;
+    }
+    #settings-btn {
+        width: 160px;
+        font-size: 1.2rem;
+    }
+    #settings-menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+    #perk-list {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .home-button {
+        width: 160px;
+        font-size: 1.5rem;
+    }
+    .info {
+        margin-left: 10%;
+        width: 300px;
+    }
+    .info img {
+        width: 5%;
+    }
+}
