@@ -141,15 +141,6 @@ themeButton.addEventListener("click", () => {
     }
 });
 
-window.addEventListener("scroll", function () {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.style.background = "rgba(0, 0, 0, 0.8)";
-    } else {
-        navbar.style.background = "url('background-navbar.jpg') no-repeat center center/cover";
-    }
-});
-
 async function fetchDBDNews() {
     const newsFeed = document.getElementById("news-feed");
 

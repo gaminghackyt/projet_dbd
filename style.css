@@ -144,6 +144,14 @@ footer {
     margin-top: 27%;
 }
 
+.dbd-stats {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-left: 17.5%;
+    width: 65%;
+    color: white;
+    border-radius: 10px;
+}
+
 @media (max-width: 768px) {
     header {
         font-size: 1.2rem;

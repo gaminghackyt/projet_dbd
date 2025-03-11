@@ -98,8 +98,55 @@ button:hover {
 }
 
 .home-button {
-    color: white;
+    color: red;
     list-style: none;
+}
+
+.hom-button:hover {
+    color: darkred;
+}
+
+.info-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.info-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    width: 1200px;
+    height: 150px;
+    text-align: left ;
+}
+
+.txt {
+    margin-left: 200px;
+    font-size: 4rem;
+    height: 10vh;
+    margin: 0;
+    display: inline;
+}
+
+.inf {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.info-content {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+.linka {
+    color: red;
 }
 
 @media screen and (max-width: 768px) {

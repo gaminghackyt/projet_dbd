@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette survivant</title>
+    <link rel="stylesheet" href="survivant.css">
+</head>
+<body>
+    <div class="slot-container">
+        <div class="slot-machine">
+            <div class="slot" id="slot1"><span class="perk-name"></span></div>
+            <div class="slot" id="slot2"><span class="perk-name"></span></div>
+            <div class="slot" id="slot3"><span class="perk-name"></span></div>
+            <div class="slot" id="slot4"><span class="perk-name"></span></div>
+        </div>
+    </div>
+    <div class="settings">
+        <button id="settings-btn">Custom Perk</button>
+    </div>
+    <div id="settings-menu" class="hidden">
+        <h3>Activer/Désactiver des Perks</h3>
+        <ul id="perk-list"></ul>
+        <button id="save-settings">Enregistrer</button>
+    </div>
+    <a href="../perk roulette/index.html" class="home-button">Accueil</a>
+    <h2 class="info"><img src="icon_shortinfo.png" alt="info">Cliquez sur une des cases pour lancer la roulette !</h2>
+</body>
+<script src="killer.js"></script>
+</html>
