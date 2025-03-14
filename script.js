@@ -78,69 +78,6 @@ async function checkTwitchLive() {
 
 window.addEventListener("load", checkTwitchLive);
 
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".container a");
-
-    links.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            const href = this.href;
-
-            document.body.classList.add("fade-out");
-
-            setTimeout(() => {
-                window.location.href = href;
-            }, 500);
-        });
-    });
-
-    document.body.classList.remove("fade-out");
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".container-un a");
-
-    links.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            const href = this.href;
-
-            document.body.classList.add("fade-out");
-
-            setTimeout(() => {
-                window.location.href = href;
-            }, 500);
-        });
-    });
-
-    document.body.classList.remove("fade-out");
-});
-
-const themeButton = document.getElementById("toggle-theme");
-const body = document.body;
-
-if (localStorage.getItem("theme") === "light") {
-    body.classList.add("light-mode");
-    themeButton.textContent = "🌑 Mode Sombre";
-}
-
-themeButton.addEventListener("click", () => {
-    body.classList.add("fade-effect");
-    body.classList.toggle("light-mode");
-
-    setTimeout(() => {
-        body.classList.remove("fade-effect");
-    }, 1000);
-
-    if (body.classList.contains("light-mode")) {
-        localStorage.setItem("theme", "light");
-        themeButton.textContent = "🌑 Mode Sombre";
-    } else {
-        localStorage.setItem("theme", "dark");
-        themeButton.textContent = "🌙 Mode Clair";
-    }
-});
-
 async function fetchDBDNews() {
     const newsFeed = document.getElementById("news-feed");
 

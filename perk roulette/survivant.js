@@ -184,21 +184,39 @@ document.addEventListener("DOMContentLoaded", function () {
     function startSlotMachine() {
         slots.forEach((slot, index) => {
             slot.classList.add("rolling");
+    
+            if (!slot.querySelector(".perk-name")) {
+                const nameDiv = document.createElement("div");
+                nameDiv.classList.add("perk-name");
+                slot.appendChild(nameDiv);
+            }
+    
+            if (!slot.querySelector("img")) {
+                const imgElement = document.createElement("img");
+                slot.appendChild(imgElement);
+            }
+    
             const spinTime = 2000 + index * 500;
-
+    
             const interval = setInterval(() => {
                 const randomPerk = activePerks[Math.floor(Math.random() * activePerks.length)];
-                const img = `<img src="${randomPerk.image}" alt="perk image">`;
-                const name = `<span class="perk-name">${randomPerk.name}</span>`;
-                slot.innerHTML = img + name;
+                const img = slot.querySelector("img");
+                const name = slot.querySelector(".perk-name");
+    
+                img.src = randomPerk.image;
+                name.textContent = randomPerk.name;
             }, 100);
-
+    
             setTimeout(() => {
                 clearInterval(interval);
+    
                 const finalPerk = activePerks[Math.floor(Math.random() * activePerks.length)];
-                const finalImg = `<img src="${finalPerk.image}" alt="perk image">`;
-                const finalName = `<span class="perk-name">${finalPerk.name}</span>`;
-                slot.innerHTML = finalImg + finalName;
+                const img = slot.querySelector("img");
+                const name = slot.querySelector(".perk-name");
+    
+                img.src = finalPerk.image;
+                name.textContent = finalPerk.name;
+    
                 slot.classList.remove("rolling");
                 slot.classList.add("final");
             }, spinTime);

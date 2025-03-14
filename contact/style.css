@@ -83,3 +83,56 @@ form {
     font-weight: bold;
     color: #28a745;
 }
+
+@keyframes rgbNeon {
+    0% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
+    25% { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; color: blue; }
+    50% { text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green; color: green; }
+    75% { text-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 30px purple; color: purple; }
+    100% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
+}
+
+@keyframes rgbGlow {
+    0% { background: red; }
+    25% { background: blue; }
+    50% { background: green; }
+    75% { background: purple; }
+    100% { background: red; }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: -1;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.twitch-name {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: rgbNeon 5s infinite alternate;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: rgbGlow 5s infinite alternate;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}

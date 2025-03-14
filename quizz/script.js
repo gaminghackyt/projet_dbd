@@ -50,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function checkAnswer(selectedIndex) {
         console.log("Réponse sélectionnée :", selectedIndex);
         console.log("Réponse correcte attendue :", questions[currentQuestionIndex].correct);
-
-        if (selectedIndex === questions[currentQuestionIndex].correct -1) {
+    
+        if (selectedIndex === questions[currentQuestionIndex].correct) {
             score++;
         }
-
+    
         const questionData = questions[currentQuestionIndex];
         const answerButtons = document.querySelectorAll(".answer-button");
-    
+        
         const correctSound = new Audio("correct.mp3");
         const wrongSound = new Audio("wrong.mp3");
     

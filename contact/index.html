@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me contacter</title>
+    <link rel="icon" href="../icon site.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="contact-form">
+    <header>
+        <span class="twitch-name">SPECTRALREID</span>
+    </header>
+    <form action="mailto:spectralreid@gmail.com" method="post" enctype="text/plain" class="contact-form">
         <label>Nom :</label>
-        <input type="text">
+        <input type="text" name="Nom" required>
         <label>Email :</label>
-        <input type="email">
+        <input type="email" name="Email" required>
         <label>Message :</label>
-        <textarea></textarea>
-        <button type="submit">Envoyer</button>
+        <textarea name="Message" required></textarea>
+        <button type="submit" class="btn">Envoyer</button>
     </form>
-    <p id="response-message"></p>
 </body>
 <script src="script.js"></script>
 </html>
