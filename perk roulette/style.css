@@ -97,15 +97,6 @@ button:hover {
     box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
 }
 
-.home-button {
-    color: red;
-    list-style: none;
-}
-
-.hom-button:hover {
-    color: darkred;
-}
-
 .info-container {
     text-align: center;
     margin-top: 100px;

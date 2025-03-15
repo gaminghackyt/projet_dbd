@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: url(../back.webp) center fixed;
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: white;
+}
+
+.quiz-container {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 12%;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.options button:hover {
+    background: #666;
+}
+
+.result-tab {
+    position: fixed;
+    top: 10px;
+    right: -300px;
+    width: 250px;
+    background: #111;
+    padding: 15px;
+    border-radius: 5px;
+    transition: right 0.3s;
+}
+
+.result-tab.visible {
+    right: 10px;
+}
+
+.toggle-button {
+    background: url('button_background_nav.png') no-repeat;
+    background-size: cover;
+    font-size: 1.2rem;
+    width: 260px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle-button:hover {
+    background-color: darkcyan;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+}
