@@ -82,5 +82,9 @@ async def photo(ctx):
     await ctx.send("https://i.ibb.co/93f2Q6Ky/UV.webp")
     await ctx.send("https://i.ibb.co/Xx21FHGg/Lumi.webp")
 
+@bot.event
+async def event_ready():
+    print(f"Le bot est maintenant connecté à Twitch en tant que {bot.nick}.")
+
 if __name__ == "__main__":
     bot.run()
