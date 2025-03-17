@@ -1,4 +1,4 @@
-const questions = [
+let questions = [
     {
         question: "Comment traquez-vous vos victimes ?",
         options: [
@@ -124,24 +124,41 @@ const questions = [
             { text: "Les attraper après une longue poursuite.", type: "mobilite" },
             { text: "Les écraser sans pitié !", type: "brutal" }
         ]
-    },
+    }
 ];
 
-let scores = JSON.parse(localStorage.getItem("quizScores")) || { furtif: 0, harceleur: 0, piegeur: 0, brutal: 0, mobilite: 0, psychologique: 0, strategique: 0 };
+let selectedTypes = [];
 let currentQuestion = 0;
+let playerName = "";
+let scores = localStorage.getItem("quizScores");
+scores = scores ? JSON.parse(scores) : [];
+
+function startQuiz() {
+    playerName = document.getElementById("playerName").value;
+    if (playerName.trim() === "") {
+        alert("Veuillez entrer un pseudo !");
+        return;
+    }
+
+    document.getElementById("name-container").style.display = "none";
+    document.getElementById("question-container").style.display = "block";
+    showQuestion();
+}
 
 function showQuestion() {
     if (currentQuestion >= questions.length) {
-        return showResult();
+        showResult();
+        return;
     }
-    
-    const q = questions[currentQuestion];
+
+    let q = questions[currentQuestion];
     document.getElementById("question").textContent = q.question;
-    const optionsDiv = document.getElementById("options");
-    optionsDiv.innerHTML = "";
     
+    let optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
     q.options.forEach(option => {
-        const btn = document.createElement("button");
+        let btn = document.createElement("button");
         btn.textContent = option.text;
         btn.onclick = () => selectOption(option.type);
         optionsDiv.appendChild(btn);
@@ -149,29 +166,76 @@ function showQuestion() {
 }
 
 function selectOption(type) {
-    scores[type]++;
-    localStorage.setItem("quizScores", JSON.stringify(scores));
+    selectedTypes.push(type);
+    console.log("Réponse enregistrée:", type);
     currentQuestion++;
-    showQuestion();
+    if (currentQuestion >= questions.length) {
+        showResult();
+    } else {
+        showQuestion();
+    }
 }
 
 function showResult() {
-    let highestScore = 0;
-    let personality = "";
-    for (let type in scores) {
-        if (scores[type] > highestScore) {
-            highestScore = scores[type];
-            personality = type;
-        }
+    console.log("Fin du quiz - Affichage du résultat...");
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("result-container").style.display = "block";
+
+    if (selectedTypes.length === 0) {
+        console.error("Aucune réponse enregistrée !");
+        return;
     }
-    document.getElementById("result").textContent = "Votre archétype de tueur est : " + personality;
-    toggleResults();
+
+    const typeCount = selectedTypes.reduce((acc, type) => {
+        acc[type] = (acc[type] || 0) + 1;
+        return acc;
+    }, {});
+
+    console.log("Comptage des types:", typeCount);
+
+    const dominantType = Object.keys(typeCount).reduce((a, b) => typeCount[a] > typeCount[b] ? a : b);
+
+    document.getElementById("resultText").textContent = `Vous êtes un tueur de type : ${dominantType}`;
+    saveResult(dominantType);
 }
 
-function toggleResults(event) {
-    const resultTab = document.getElementById("resultTab");
+function saveResult(type) {
+    console.log(`Sauvegarde du résultat: ${playerName} -> ${type}`);
+    if (!Array.isArray(scores)) {
+        console.warn("⚠️ Correction : `scores` n'était pas un tableau. Réinitialisation.");
+        scores = [];
+    }
+
+    scores.push({ name: playerName, result: type });
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    document.addEventListener("DOMContentLoaded", function() {
+        updateResultsTable();
+    });
+}
+
+function updateResultsTable() {
+    console.log("Mise à jour du tableau des résultats...");
+    const tableBody = document.getElementById("resultTableBody");
+    tableBody.innerHTML = "";
+
+    scores.forEach(entry => {
+        const row = `<tr><td>${entry.name}</td><td>${entry.result}</td></tr>`;
+        tableBody.innerHTML += row;
+    });
+
+    document.getElementById("toggleButton").textContent = `Tableau des résultats (${scores.length})`;
+}
+
+document.getElementById("toggleButton").addEventListener("click", function() {
+    let resultTab = document.getElementById("resultTab");
+    updateResultsTable();
     resultTab.classList.toggle("visible");
-    event.stopPropagation();
-}
+});
 
-showQuestion();
+document.addEventListener("click", function(event) {
+    let resultTab = document.getElementById("resultTab");
+    if (event.target !== document.getElementById("toggleButton") && resultTab.style.display === "block") {
+        resultTab.style.display = "none";
+    }
+});

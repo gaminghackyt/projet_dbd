@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="killer.css">
 </head>
 <body>
-    <button class="toggle-button" onclick="toggleResults()">Tableau des résultats</button>
+    <video autoplay loop muted>
+        <source src="rin-yamaoka-dead-by-daylight.1920x1080.mp4" type="video/mp4">
+        Désolé, votre navigateur ne supporte pas la vidéo.
+    </video>
+    <button class="toggle-button" id="toggleButton">Tableau des résultats</button>
     <div class="result-tab" id="resultTab">
         <h3>Résultats des joueurs</h3>
         <table>
@@ -23,11 +27,17 @@
         </table>
     </div>
     <div class="quiz-container">
-        <div id="question-container">
+        <div id="name-container">
+            <input type="text" id="playerName" placeholder="Entrez votre pseudo" />
+            <button onclick="startQuiz()" class="start">Commencer</button>
+        </div>
+        <div id="question-container" style="display: none;">
             <div class="question" id="question">Question ici...</div>
             <div class="options" id="options"></div>
         </div>
-        <div id="result" style="display: none;"></div>
+        <div id="result-container" style="display: none;">
+            <h2 id="resultText"></h2>
+        </div>
     </div>
 </body>
 <script src="killer.js"></script>

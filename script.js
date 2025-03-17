@@ -106,6 +106,56 @@ async function fetchDBDNews() {
     }
 }
 
+document.getElementById("twitch-login").addEventListener("click", function() {
+    const clientId = "odb55mg5i3ohfkfl7rmuwcrmgc0i9m";
+    const redirectUri = "https://projetdbd.netlify.app";
+    const scope = "user:read:email";
+    const authUrl = `https://id.twitch.tv/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scope}`;
+    window.location.href = authUrl;
+});
+
+function getTwitchUser(token) {
+    fetch('https://api.twitch.tv/helix/users', {
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Client-ID': 'odb55mg5i3ohfkfl7rmuwcrmgc0i9m'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.data.length > 0) {
+            const user = data.data[0];
+            document.getElementById("twitch-avatar").src = user.profile_image_url;
+            document.getElementById("twitch-username").textContent = user.display_name;
+            document.getElementById("twitch-user").style.display = "flex";
+            document.getElementById("twitch-login").style.display = "none";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const twitchUserContainer = document.getElementById("twitch-user");
+    const twitchAvatar = document.getElementById("twitch-avatar");
+    const twitchUsername = document.getElementById("twitch-username");
+    const twitchLoginButton = document.getElementById("twitch-login");
+
+    const user = {
+        username: "SpectralReid",
+        avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/example-profile-image.png"
+    };
+
+    function handleTwitchLogin() {
+        if (user) {
+            twitchUsername.textContent = user.username;
+            twitchAvatar.src = user.avatar;
+            twitchUserContainer.style.display = "flex";
+            twitchLoginButton.style.display = "none";
+        }
+    }
+
+    twitchLoginButton.addEventListener("click", handleTwitchLogin);
+});
+
 // window.addEventListener("load", fetchDBDNews);
 
 // timer uniquement si une sortie est prévu!!!

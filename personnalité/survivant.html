@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnalité killer</title>
+    <link rel="icon" href="../icon site.png" type="image/x-icon">
+    <link rel="stylesheet" href="survivant.css">
+</head>
+<body>
+    <button class="toggle-button" id="toggleButton">Tableau des résultats</button>
+    <div class="result-tab" id="resultTab">
+        <h3>Résultats des joueurs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Archétype</th>
+                </tr>
+            </thead>
+            <tbody id="resultTableBody">
+            </tbody>
+        </table>
+    </div>
+    <div class="quiz-container">
+        <div id="name-container">
+            <input type="text" id="playerName" placeholder="Entrez votre pseudo" />
+            <button onclick="startQuiz()" class="start">Commencer</button>
+        </div>
+        <div id="question-container" style="display: none;">
+            <div class="question" id="question">Question ici...</div>
+            <div class="options" id="options"></div>
+        </div>
+        <div id="result-container" style="display: none;">
+            <h2 id="resultText"></h2>
+        </div>
+    </div>
+</body>
+<script src="survivant.js"></script>
+</html>

@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url(../back.webp) center fixed;
+    background: url(rin-yamaoka-dead-by-daylight.1920x1080.mp4) no-repeat fixed;
     background-size: cover;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
@@ -14,18 +14,28 @@ body {
     color: white;
 }
 
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La vidéo couvre toute la fenêtre sans déformation */
+    z-index: -1; /* Place la vidéo derrière les autres éléments */
+}
+
 .quiz-container {
     width: 80%;
     max-width: 600px;
     margin: auto;
     margin-top: 12%;
-    background: #333;
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
 }
 
 .question {
-    font-size: 20px;
+    font-size: 2rem;
     margin-bottom: 10px;
 }
 
@@ -39,6 +49,7 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 1.2rem;
 }
 
 .options button:hover {
@@ -47,17 +58,19 @@ body {
 
 .result-tab {
     position: fixed;
-    top: 10px;
-    right: -300px;
-    width: 250px;
-    background: #111;
+    top: 15px;
+    right: -100%;
+    margin-top: 48px;
+    width: 96%;
+    background: rgba(0, 0, 0, 0.9);
+    font-size: 1.3rem;
     padding: 15px;
     border-radius: 5px;
-    transition: right 0.3s;
+    transition: right 0.3s ease-in-out; /* Animation douce */
 }
 
 .result-tab.visible {
-    right: 10px;
+    right: 10px; /* Déplace le panneau à droite */
 }
 
 .toggle-button {
@@ -79,6 +92,30 @@ body {
 
 .toggle-button:hover {
     background-color: darkcyan;
+}
+
+#playerName {
+    font-size: 1.5rem;
+    width: 50%;
+}
+
+@keyframes rgbNeon {
+    0% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
+    25% { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; color: blue; }
+    50% { text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green; color: green; }
+    75% { text-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 30px purple; color: purple; }
+    100% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
+}
+
+.start {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: rgbNeon 5s infinite alternate;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
 }
 
 table {

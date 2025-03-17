@@ -85,6 +85,28 @@ header {
     100% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
 }
 
+#twitch-user .avatar {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#twitch-login {
+    background-color: #6441a5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 20%;
+}
+
+#twitch-login:hover {
+    background-color: #503484;
+}
+
 .twitch-name {
     font-size: 3rem;
     font-weight: bold;
