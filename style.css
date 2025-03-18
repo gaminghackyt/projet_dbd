@@ -110,14 +110,14 @@ header {
 
 #twitch-login:hover {
     background-color: #503484;
-}
+} */
 
 .twitch-name {
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
     animation: rgbNeon 5s infinite alternate;
-} */
+}
 
 .header-links {
     display: flex;
