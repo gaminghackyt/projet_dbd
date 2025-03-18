@@ -177,7 +177,7 @@ function showResult() {
 
     const dominantType = Object.keys(typeCount).reduce((a, b) => typeCount[a] > typeCount[b] ? a : b);
 
-    document.getElementById("resultText").textContent = `Vous êtes un tueur de type : ${dominantType}`;
+    document.getElementById("resultText").textContent = `Vous êtes un survivant de type : ${dominantType}`;
     saveResult(dominantType);
 }
 

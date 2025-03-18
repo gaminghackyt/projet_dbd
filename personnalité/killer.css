@@ -20,8 +20,8 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* La vidéo couvre toute la fenêtre sans déformation */
-    z-index: -1; /* Place la vidéo derrière les autres éléments */
+    object-fit: cover;
+    z-index: -1;
 }
 
 .quiz-container {

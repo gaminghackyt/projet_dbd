@@ -135,7 +135,7 @@ header {
 }
 
 .header-links a:hover {
-    color: red; /* Change la couleur au survol */
+    color: red;
 }
 
 .content {
@@ -235,7 +235,6 @@ footer {
     width: 100%;
     text-align: center;
     flex-wrap: wrap;
-    /* background-color: #222; */
     margin-right: 70%;
     margin-top: 27%;
     background: rgba(0, 0, 0, 0.7);
