@@ -133,25 +133,27 @@ function getTwitchUser(token) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const twitchUserContainer = document.getElementById("twitch-user");
-    const twitchAvatar = document.getElementById("twitch-avatar");
-    const twitchUsername = document.getElementById("twitch-username");
-    const twitchLoginButton = document.getElementById("twitch-login");
 
-    const user = {
-        username: "SpectralReid",
-        avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/example-profile-image.png"
-    };
+// CONNEXION A TWITCH A VOIR PLUS TARD 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const twitchUserContainer = document.getElementById("twitch-user");
+//     const twitchAvatar = document.getElementById("twitch-avatar");
+//     const twitchUsername = document.getElementById("twitch-username");
+//     const twitchLoginButton = document.getElementById("twitch-login");
 
-    function handleTwitchLogin() {
-        if (user) {
-            twitchUsername.textContent = user.username;
-            twitchAvatar.src = user.avatar;
-            twitchUserContainer.style.display = "flex";
-            twitchLoginButton.style.display = "none";
-        }
-    }
+//     const user = {
+//         username: "SpectralReid",
+//         avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/example-profile-image.png"
+//     };
 
-    twitchLoginButton.addEventListener("click", handleTwitchLogin);
-});
+//     function handleTwitchLogin() {
+//         if (user) {
+//             twitchUsername.textContent = user.username;
+//             twitchAvatar.src = user.avatar;
+//             twitchUserContainer.style.display = "flex";
+//             twitchLoginButton.style.display = "none";
+//         }
+//     }
+
+//     twitchLoginButton.addEventListener("click", handleTwitchLogin);
+// });

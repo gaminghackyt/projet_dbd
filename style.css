@@ -85,8 +85,13 @@ header {
     100% { text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red; color: red; }
 }
 
-#twitch-user .avatar {
+/* CONNEXION A TWITCH A VOIR PLUS TARD */
+/* #twitch-user {
     display: none;
+}
+
+.avatar {
+    display: flex;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -112,7 +117,7 @@ header {
     font-weight: bold;
     text-transform: uppercase;
     animation: rgbNeon 5s infinite alternate;
-}
+} */
 
 .header-links {
     display: flex;
@@ -319,23 +324,6 @@ footer {
     transform: scale(1.05);
 }
 
-/* uniquement pour les nouvelles sorties */
-.badge {
-    position: absolute;
-    background-color: red;
-    color: whitesmoke;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    transform: rotate(-20deg);
-    top: 10px;
-    left: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    animation: pulse 1.5s infinite ease-in-out;
-    border-radius: 7px;
-}
-
 .card {
     position: relative;
 }
@@ -367,16 +355,6 @@ footer {
     gap: 15px;
 }
 
-/* uniquement pour les prochaines sorties sans date prévu */
-.card.disabled {
-    position: relative;
-    pointer-events: none;
-}
-
-.card.disabled img {
-    filter: brightness(40%);
-}
-
 .overlay {
     position: absolute;
     top: 50%;
@@ -389,15 +367,4 @@ footer {
     padding: 10px 15px;
     border-radius: 5px;
     text-transform: uppercase;
-}
-
-/* uniquement pour le timer avant sortie */
-#countdown {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #ffcc00;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 6px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    margin-top: 10px;
 }
