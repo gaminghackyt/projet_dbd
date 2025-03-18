@@ -155,31 +155,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     twitchLoginButton.addEventListener("click", handleTwitchLogin);
 });
-
-// window.addEventListener("load", fetchDBDNews);
-
-// timer uniquement si une sortie est prévu!!!
-// const releaseDate = new Date("2025-03-09T00:00:00").getTime();
-
-// function updateCountdown() {
-//     const now = new Date().getTime();
-//     const timeLeft = releaseDate - now;
-
-//     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-//     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-//     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-//     const countdownElement = document.getElementById("countdown");
-
-//     if (timeLeft > 0) {
-//         countdownElement.innerHTML = `Perk Roulette disponible dans : ${days}j ${hours}h ${minutes}m ${seconds}s`;
-//     } else {
-//         countdownElement.innerHTML = "🎉 La mise à jour va maintenant être disponible !";
-//         clearInterval(countdownInterval);
-//     }
-// }
-
-// const countdownInterval = setInterval(updateCountdown, 1000);
-
-// updateCountdown();
