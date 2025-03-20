@@ -15,6 +15,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     background-color: #222;
+    overflow: hidden;
 }
 
 video {
@@ -49,6 +50,11 @@ video {
     text-align: justify;
     padding: 15px;
     border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.fade-out {
+    opacity: 0;
 }
 
 .left-page {
@@ -106,6 +112,7 @@ video {
 .right-page {
     top: 45%;
     right: 11.6%;
+    padding-right: 80px;
 }
 
 .lore-text {
@@ -113,6 +120,22 @@ video {
     line-height: 1.5;
     padding: 10px;
     transform: rotate(-1deg);
+    max-height: 121%;
+    overflow-y: scroll;
+    padding-right: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    scrollbar-width: thin;
+    scrollbar-color: #222 #222;
+}
+
+.lore-text::-webkit-scrollbar {
+    display: none;
+}
+
+.lore-text {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 button {
