@@ -147,4 +147,8 @@ button:hover {
     .killer {
         width: 160px;
     }
+
+    .info-button {
+        width: 100%;
+    }
 }

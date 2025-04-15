@@ -209,3 +209,25 @@ body {
     width: 3%;
     margin-right: 5px;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        background: cover;
+    }
+
+    #settings-btn {
+        width: 160px;
+    }
+
+    .home-button {
+        width: 40%;
+    }
+
+    .info {
+        width: 50%;
+    }
+
+    .slot-machine {
+        margin: 20%;
+    }
+}

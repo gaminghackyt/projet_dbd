@@ -56,3 +56,12 @@ body {
 .survivant:hover {
     background-color: darkblue;
 }
+
+@media screen and (max-width: 768px) {
+    .survivant {
+        width: 40%;
+    }
+    .killer {
+        width: 40%;
+    }
+}

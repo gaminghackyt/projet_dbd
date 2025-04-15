@@ -130,9 +130,6 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    body {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
     header {
         font-size: 1.2rem;
         padding: 15px;
@@ -160,5 +157,9 @@ footer p {
     #result-container {
         width: 90%;
         padding: 15px;
+    }
+    .social-links {
+        width: 30%;
+        display: inline;
     }
 }

@@ -152,3 +152,22 @@ button {
 button:hover {
     background-color: #361f5b;
 }
+
+@media screen and (max-width: 768px) {
+    video {
+        display: none;
+    }
+    .book-container {
+        display: none;
+    }
+    span {
+        color: white;
+        font-size: 2rem;
+        animation: glitch 5s infinite alternate;
+    }
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px red, -2px -2px blue; }
+        50% { text-shadow: -2px -2px red, 2px 2px blue; }
+        100% { text-shadow: 2px 2px red, -2px 2px blue; }
+    }
+}
