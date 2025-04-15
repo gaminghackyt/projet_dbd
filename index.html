@@ -9,31 +9,24 @@
 </head>
 <body>
     <header>
-        <nav class="header-links">
+        
+        <div class="burger" id="burger">
+            <img src="icons8-menu-52.png" alt="Menu" class="burger-icon">
+        </div>
+        
+        <nav class="header-links" id="nav-links">
             <span class="twitch-name">SPECTRALREID</span>
             <a href="https://www.twitch.tv/spectralreid" target="_blank">Twitch</a>
             <a href="https://www.youtube.com/@spectralreid" target="_blank">YouTube</a>
             <a href="https://x.com/gaminghack_yt" target="_blank">X</a>
             <a href="https://discord.gg/9fkCVRvyrr" target="_blank">Discord</a>
             <a href="contact/index.html" target="_blank">Contact</a>
-
-            <!-- CONNECXION A TWITCH A VOIR PLUS TARD -->
-            <!-- <div id="twitch-user" style="display: none;">
-                <img id="twitch-avatar" src="" alt="Avatar" class="avatar">
-                <span id="twitch-username"></span>
-            </div>
-            <button id="twitch-login">Se connecter avec Twitch</button> -->
-
-
         </nav>
-    </header><br><br><br><br><br>
+      </header><br><br><br><br><br>
     <div id="loading-screen">
         <div id="loading-text">Spectralreid</div>
     </div>
     <div id="main-content" style="display: none;">
-        <div class="mobile-block-message">
-            Désolé mais ce site à étais désactivez pour les versions mobiles du à des bugs rencontrer.
-          </div>
         <section class="content">
             <div class="text left">
                 <h2>Défi survivant</h2> <br>
@@ -132,5 +125,14 @@
         </footer>
     </div>
 </body>
+<script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.querySelector('.header-links');
+  
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      burger.classList.toggle('active');
+    });
+  </script>
 <script src="script.js"></script>
 </html>
