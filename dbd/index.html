@@ -22,9 +22,22 @@
             <a href="https://discord.gg/9fkCVRvyrr" target="_blank" class="discord">Discord</a>
             <a href="contact/index.html" target="_blank" class="contact">Contact</a>
         </nav>
-      </header><br><br><br><br><br>
+    </header><br><br><br><br><br>
+    <div class="obtenir">
+        <button class="obtenir-btn" onclick="toggleMenu()">Obtenir le jeu</button>
+        <div class="obtenir-menu" id="obtenirMenu">
+            <a href="https://store.steampowered.com/app/381210/Dead_by_Daylight/" target="_blank">
+                <img src="steam.png" alt="Steam"></a>
+            <a href="https://www.playstation.com/fr-fr/games/dead-by-daylight/" target="_blank">
+                <img src="playstation.png" alt="Playstation"></a>
+            <a href="https://www.xbox.com/fr-FR/games/store/dead-by-daylight/C0N22P73QZ60" target="_blank">
+                <img src="xbox.png" alt="Xbox"></a>
+            <a href="https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch/Dead-by-Daylight-1576022.html?srsltid=AfmBOooaR8JumSc1NgzNQH06R1UuoAcmt57fE22GCHZoqtcgGFqkICCJ" target="_blank">
+                <img src="nintendo-switch.png" alt="Nintendo Switch"></a>
+        </div>
+    </div>
     <div id="loading-screen">
-        <div id="loading-text">Chargement du contenu Dead By Daylight</div>
+        <div id="loading-text">Chargement du contenu de Dead By Daylight...</div>
     </div>
     <div id="main-content" style="display: none;">
         <section class="content">
@@ -95,34 +108,17 @@
                 <a href="personnalité/index.html" class="btn">Découvrir</a>
             </div>
         </section>
-        <section class="content">
-            <div class="text left">
-                <h2>Livre du survivant</h2><br>
-                <p>Vous pouvez retrouver tous sur l'histoire les perks sur les survivants</p><br>
-                <a href="../livre survivant/index.html" class="btn">Découvrir</a>
-            </div>
-            <div>
-                <img src="../livre survivant/img/livre survivant.webp" alt="Dbd survivant" class="site">
-            </div>
-        </section>
         </div>
-        <div id="twitch-container">
+        <!-- <div id="twitch-container">
             <div id="twitch-status">Chargement du status...</div>
             <iframe id="twitch-player" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <section id="dbd-news">
-            <h2>📰 Actualités Dead by Daylight</h2>
-            <div id="news-feed">Chargement des actualités...</div>
-        </section><br><br>
+        </div> -->
         <section>
             <h2 class="dbd-stats">📊 Mes Statistiques DBD</h2>
             <div class="stats-container">
                 <iframe src="https://dbdstats.com/profile/76561199274797583" width="800" height="600"></iframe>
             </div>
         </section>
-        <footer>
-            <p>© 2025 Spectralreid - Tous droits réservés</p>
-        </footer>
     </div>
 </body>
 <script>

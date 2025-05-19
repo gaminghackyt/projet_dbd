@@ -133,6 +133,15 @@ function getTwitchUser(token) {
     });
 }
 
+function toggleMenu() {
+    const menu = document.getElementById('obtenirMenu');
+    if (menu.style.display === 'flex') {
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'flex';
+      menu.style.animation = 'slideRight 0.3s ease forwards';
+    }
+}
 
 // CONNEXION A TWITCH A VOIR PLUS TARD 
 // document.addEventListener("DOMContentLoaded", function () {

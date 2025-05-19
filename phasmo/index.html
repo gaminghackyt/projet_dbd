@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectralreid, Streamer horreur & simulation</title>
+    <link rel="icon" href="icons8-phasmophobie-du-jeu-48.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div id="loading-text">Chargement du contenu de Phasmophobia...</div>
+    </div>
+    <header>
+        <nav class="header-links" id="nav-links">
+            <span class="twitch-name">SPECTRALREID</span>
+            <a href="https://www.twitch.tv/spectralreid" target="_blank" class="twitch">Twitch</a>
+            <a href="https://www.youtube.com/@spectralreid" target="_blank" class="youtube">Youtube</a>
+            <a href="https://x.com/gaminghack_yt" target="_blank" class="x">X</a>
+            <a href="https://discord.gg/9fkCVRvyrr" target="_blank" class="discord">Discord</a>
+            <a href="../dbd/contact/index.html" target="_blank" class="contact">Contact</a>
+        </nav>
+    </header>
+    <div class="obtenir">
+        <button class="obtenir-btn" onclick="toggleMenu()">Obtenir le jeu</button>
+        <div class="obtenir-menu" id="obtenirMenu">
+            <a href="https://store.steampowered.com/app/739630/Phasmophobia/" target="_blank">
+                <img src="../dbd/steam.png" alt="Steam" class="lien"></a>
+            <a href="https://www.playstation.com/fr-fr/games/phasmophobia/" target="_blank">
+                <img src="../dbd/playstation.png" alt="Playstation" class="lien"></a>
+            <a href="https://www.xbox.com/en-US/games/store/phasmophobia-game-preview/9N6D60SBZN05/0010" target="_blank">
+                <img src="../dbd/xbox.png" alt="Xbox" class="lien"></a>
+        </div>
+    </div>
+    <div id="main-content" style="display: none;">
+        <section class="content">
+            <div class="text left">
+                <h2>Phasmo-Mémo Entités</h2> <br>
+                <p class="t">Voici le Phasmo-Mémo pour les entités.</p><br>
+                <p class="t">Vous avez besoin d'en apprendre plus sur certain fantôme, vous aurez toutes <br> les informations nécessaire à cette endroit.</p><br>
+                <a href="phasmomemo/index.html" class="btn" onclick="fadeAndRedirect('phasmomemo/index.html')">Entités</a>
+            </div>
+            <div>
+                <img src="entite.jpg" alt="Phasmo-Mémo Entité" class="site">
+            </div>
+        </section>
+        <div id="fade-overlay"></div>
+        <section class="content">
+            <div>
+                <img src="maps.jpg" alt="Phasmo-Mémo Maps" class="site">
+            </div>
+            <div class="text right">
+                <h2>Phasmo-Mémo Maps</h2><br>
+                <p class="t">Voici le Phasmo-Mémo pour les maps.</p><br>
+                <p class="t">Vous avez besoin de savoir comment est découper une map, <br> vous aurez toutes les informations nécessaire à cette endroit.</p><br>
+                <a href="phasmocarte/index.html" class="btn">Maps</a>
+            </div>
+        </section>
+</body>
+<script src="script.js"></script>
+</html>
