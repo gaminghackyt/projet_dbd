@@ -9,6 +9,9 @@
 </head>
 <body>
     <header>
+        <div class="burger" id="burger">
+            <img src="dbd/icons8-menu-52.png" alt="Menu" class="burger-icon">
+        </div>
         <div id="loading-screen">
             <div id="loading-text">Spectralreid</div>
         </div>
@@ -41,5 +44,14 @@
         <p>© 2025 Spectralreid - Tous droits réservés</p>
     </footer> -->
 </body>
+<script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.querySelector('.header-links');
+  
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      burger.classList.toggle('active');
+    });
+  </script>
 <script src="script.js"></script>
 </html>

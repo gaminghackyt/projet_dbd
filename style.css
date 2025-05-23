@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url(banner\ twitch.png);
+    background-image: url(baba.jfif);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -209,11 +209,61 @@ a {
 
 .modo:hover {color: darkred;}
 
+.burger-icon {display: none;}
+
 @media only screen and (max-width: 768px) {
-    body {background-image: none;background: black;}
-    header {display: none;}
-    .content {display: none;}
-    .barre {display: none;}
-    .barres {display: none;}
-    .pres {display: none;}
+    body {background-image: url(baba.jfif); background-size: cover;}
+    header {background: none;}
+    .twitch-name {font-size: 1rem; text-align: center;}
+    .burger {
+        display: block;
+      }
+      .burger-icon {
+        display: flex;
+        width: 10%;
+      }
+      .header-links {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 7%;
+        left: 0;
+        height: 100%;
+        width: 50%;
+        padding: 6rem 1rem;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .header-links.show {
+        display: flex;
+        transform: translateX(0);
+      }
+      .twitch-name {
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+      .header-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0.5rem 0;
+      }
+      .content {
+        display: inline-block;
+      }
+      .site {
+        width: 100%;
+      }
+      .barre {
+        width: 99%;
+        margin-top: 16%;
+      }
+      .barres {
+        width: 99%;
+      }
+      .pres {
+        width: 99%;
+      }
 }

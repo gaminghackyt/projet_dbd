@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
     }, 1000);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        alert("La version mobile n'est pas encore disponible pour cet appareil.");
-    }
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+//         alert("La version mobile n'est pas encore disponible pour cet appareil.");
+//     }
+// });

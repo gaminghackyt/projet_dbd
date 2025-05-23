@@ -12,6 +12,9 @@
         <div id="loading-text">Chargement du contenu de Phasmophobia...</div>
     </div>
     <header>
+        <div class="burger" id="burger">
+            <img src="../dbd/icons8-menu-52.png" alt="Menu" class="burger-icon">
+        </div>
         <nav class="header-links" id="nav-links">
             <span class="twitch-name">SPECTRALREID</span>
             <a href="https://www.twitch.tv/spectralreid" target="_blank" class="twitch">Twitch</a>
@@ -41,7 +44,7 @@
                 <a href="phasmomemo/index.html" class="btn" onclick="fadeAndRedirect('phasmomemo/index.html')">Entités</a>
             </div>
             <div>
-                <img src="entite.jpg" alt="Phasmo-Mémo Entité" class="site">
+                <img src="entite.jpg" alt="Phasmo-Mémo Entité" class="site" class="site-un">
             </div>
         </section>
         <div id="fade-overlay"></div>
@@ -57,5 +60,14 @@
             </div>
         </section>
 </body>
+<script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.querySelector('.header-links');
+  
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      burger.classList.toggle('active');
+    });
+  </script>
 <script src="script.js"></script>
 </html>
