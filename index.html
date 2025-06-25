@@ -13,7 +13,15 @@
             <img src="dbd/icons8-menu-52.png" alt="Menu" class="burger-icon">
         </div>
         <div id="loading-screen">
-            <div id="loading-text">Spectralreid</div>
+            <div id="loading-text" onclick="showPasswordPrompt()">Spectralreid</div>
+        </div>
+        <div id="password-overlay">
+            <div id="password-container">
+                <input type="password" id="password-input" placeholder="Veuillez saisir le code secret" />
+                <br />
+                <button onclick="checkPassword()">Valider</button>
+                <p id="error-message">Code secret incorect</p>
+            </div>
         </div>
         <nav class="header-links" id="nav-links">
             <span class="twitch-name">SPECTRALREID</span>
@@ -53,5 +61,39 @@
       burger.classList.toggle('active');
     });
   </script>
+  <script>
+    const correctPassword = "MBEkZvEl2f4va9cs";
+
+    function showPasswordPrompt() {
+        document.getElementById("password-overlay").style.display = "flex";
+    }
+
+    function checkPassword() {
+        const userPassword = document.getElementById("password-input").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (userPassword === correctPassword) {
+            window.location.href = "../site secret/index.html";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.ctrlKey && e.key.toLowerCase() === "m") {
+            e.preventDefault();
+            showPasswordPrompt();
+        }
+    });
+
+    let touchTimer;
+    document.addEventListener("touchstart", function () {
+        touchTimer = setTimeout(showPasswordPrompt, 800);
+    });
+
+    document.addEventListener("touchend", function () {
+        clearTimeout(touchTimer);
+    });
+</script>
 <script src="script.js"></script>
 </html>
