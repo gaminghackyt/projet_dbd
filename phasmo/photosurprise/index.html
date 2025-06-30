@@ -1,24 +1,138 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectralreid, Streamer horreur & simulation</title>
-    <link rel="icon" href="../icons8-phasmophobie-du-jeu-48.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spectralreid, Streamer horreur & simulation</title>
+  <link rel="icon" href="../icons8-phasmophobie-du-jeu-48.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="controls" id="selectContainer">
+  <div class="text" id="welcomeText">
+    <h2>Bienvenue sur la roue phasmophobia.</h2>
+    <h2 class="un">Vous voulez pimentez vos games en sélectionnant un ou plusieurs objects aléatoirement ?</h2>
+    <h2 class="une">Vous êtes au bon endroit. Vous avez juste à séléctionner le nombre d'objet que vous voulez et laisser le hasard vous donnez vos items</h2>
+  </div>
+  <div class="controls" id="selectContainer">
     <select id="imageCount">
-      <option value="">-- Choisir --</option>
-      ${[...Array(21).keys()].map(i => `<option value="${i+1}">${i+1}</option>`).join('')}
+      <option value="">-- Nombre d'object --</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
     </select>
-    <button onclick="generateImages()">Afficher</button>
+    <button onclick="generateImages()">Prendre la photo</button>
   </div>
 
-  <button id="resetBtn" onclick="resetImages()">Reset</button>
+  <button id="resetBtn" onclick="resetImages()" style="display: none;">Reset</button>
+
+  <div id="cameraContainer">
+    <img src="back/AppareilPhoto.png" alt="Appareil Photo" id="cameraImage" width="200"/>
+  </div>
+
+  <div id="flash"></div>
+  <audio id="cameraSound" src="back/polaroid.wav" preload="auto"></audio>
 
   <div class="gallery" id="imageGallery"></div>
+
+  <script>
+    const allImages = [
+      "item/3Fte3.png",
+      "item/Cam.png",
+      "item/CapteurSonore.png",
+      "item/Crucifix.png",
+      "item/DetecteurDeMouvement.png",
+      "item/DOTS.png",
+      "item/Encens.png",
+      "item/LampeU.png",
+      "item/LecteurEMF.png",
+      "item/Livre.png",
+      "item/LumiereFeu.png",
+      "item/Mentale.png",
+      "item/MicrophoneParabolique.png",
+      "item/Sel.png",
+      "item/soundRecorder.png",
+      "item/SpiritBox.png",
+      "item/Thermo.png",
+      "item/Trepied.png",
+      "item/Allumeur.png",
+      "item/AppareilPhoto.png"
+    ];
+
+    const select = document.getElementById("imageCount");
+    const resetBtn = document.getElementById("resetBtn");
+    const camera = document.getElementById("cameraContainer");
+    const flash = document.getElementById("flash");
+    const sound = document.getElementById("cameraSound");
+    const gallery = document.getElementById("imageGallery");
+    const selectContainer = document.getElementById("selectContainer");
+    const welcomeText = document.getElementById("welcomeText");
+    
+    function generateImages() {
+      const count = parseInt(select.value);
+      if (!count || count < 1 || count > allImages.length) {
+        alert(`Choisis un nombre entre 1 et ${allImages.length} !`);
+        return;
+      }
+
+      welcomeText.style.display = "none";
+
+      camera.classList.add("active");
+
+      setTimeout(() => {
+        flash.classList.add("active");
+        sound.currentTime = 0;
+        sound.play();
+      }, 500);
+
+      setTimeout(() => {
+        flash.classList.remove("active");
+      }, 700);
+
+      setTimeout(() => {
+        camera.classList.remove("active");
+
+        gallery.innerHTML = "";
+
+        const shuffled = [...allImages].sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, count);
+
+        selected.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "Objet Phasmo";
+          img.style.animationDelay = `${index * 0.1}s`;
+          gallery.appendChild(img);
+        });
+
+        selectContainer.style.display = "none";
+        resetBtn.style.display = "inline-block";
+      }, 1200);
+    }
+
+    function resetImages() {
+      gallery.innerHTML = "";
+      select.value = "";
+      selectContainer.style.display = "block";
+      resetBtn.style.display = "none";
+      welcomeText.style.display = "block";
+    }
+  </script>
 </body>
-<script src="script.js"></script>
 </html>
