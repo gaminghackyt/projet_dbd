@@ -1,0 +1,147 @@
+body {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+/* video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+} */
+
+h1 {
+    color: white;
+}
+
+.ghost-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    max-width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.ghost-list li {
+    /* background-color: rgba(133, 132, 132, 0.6); */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.ghost-list li.selected {
+    position: relative;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.ghost-list li.selected::before {
+    /* background: black; */
+    content: '';
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    top: 10%;
+    margin-right: 23%;
+    right: -10px;
+    bottom: -5px;
+    border: 5px solid black;
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.ghost-list li.crossed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+li {
+    color: white;
+    list-style: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.ghost-description {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.7rem;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    color: black;
+    border-radius: 5px;
+}
+
+.ghost-list,
+.ghost-list-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.content {
+    background: url(old.jpg);
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url(old.jpg);
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.5rem;
+    }
+
+    .ghost-list li,
+    .ghost-list-info li {
+        padding: 6px;
+        font-size: 0.68rem;
+    }
+
+    .ghost-mode {
+        margin-top: 10%;
+        margin-right: 100%;
+    }
+
+    .ghost-description {
+        font-size: 1rem;
+        max-width: 50%;
+        color: white;
+    }
+
+    .ghost-list-info {
+        max-width: 20%;
+    }
+
+    .ghost-list li.selected::before {
+        width: 85%;
+        right: -12px;
+        bottom: -5px;
+    }
+
+    .content {
+        background: none;
+    }
+}
