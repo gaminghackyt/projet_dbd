@@ -1,86 +1,148 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const switchViewBtn = document.getElementById("switchViewBtn");
-    const mode1 = document.getElementById("mode1");
-    const mode2 = document.getElementById("mode2");
-    const descriptionBox = document.getElementById("ghostDescription");
+  const switchViewBtn = document.getElementById("switchViewBtn");
+  const mode1 = document.getElementById("mode1");
+  const mode2 = document.getElementById("mode2");
+  const leftContent = document.getElementById("leftContent");
+  const descriptionBox = document.getElementById("ghostDescription");
 
-    const ghosts = document.querySelectorAll(".ghost-list li");
+  // === 1. Switch entre mode 1 et mode 2 ===
+  let mode = 1;
 
-    ghosts.forEach(li => {
-        li.dataset.state = "0";
+  switchViewBtn.addEventListener("click", () => {
+    const isMode1 = mode === 1;
 
-        li.addEventListener("click", () => {
-            let state = parseInt(li.dataset.state);
+    mode1.style.display = isMode1 ? "none" : "flex";
+    mode2.style.display = isMode1 ? "flex" : "none";
+    leftContent.style.display = isMode1 ? "none" : "block";
+    descriptionBox.style.display = "none"; // Masqué tant qu'aucun fantôme cliqué
 
-            if ((state + 1) % 3 === 1) {
-                ghosts.forEach(other => {
-                    if (other !== li && other.dataset.state === "1") {
-                        other.dataset.state = "0";
-                        other.classList.remove("selected");
-                    }
-                });
-            }
+    if (!isMode1) {
+      descriptionBox.textContent = "Cliquez sur un fantôme pour voir sa description.";
+    }
 
-            state = (state + 1) % 3;
-            li.dataset.state = state.toString();
+    mode = isMode1 ? 2 : 1;
+  });
 
-            li.classList.remove("selected", "crossed");
+  // === 2. Fantômes (mode 1) : 3 états ===
+  const ghosts = document.querySelectorAll(".ghost-list li");
 
-            if (state === 1) li.classList.add("selected");
-            else if (state === 2) li.classList.add("crossed");
+  ghosts.forEach(li => {
+    li.dataset.state = "0";
+
+    li.addEventListener("click", () => {
+      let state = parseInt(li.dataset.state);
+      if ((state + 1) % 3 === 1) {
+        ghosts.forEach(other => {
+          if (other !== li && other.dataset.state === "1") {
+            other.dataset.state = "0";
+            other.classList.remove("selected", "crossed");
+          }
         });
+      }
+
+      state = (state + 1) % 3;
+      li.dataset.state = state.toString();
+
+      li.classList.remove("selected", "crossed");
+      if (state === 1) li.classList.add("selected");
+      else if (state === 2) li.classList.add("crossed");
     });
+  });
 
-    const ghostsInfo = document.querySelectorAll(".ghost-list-info li");
+  // === 3. Preuves : 3 états + filtrage fantômes ===
+  const evidenceButtons = document.querySelectorAll(".evidence");
+  const allGhosts = document.querySelectorAll(".ghost-list li");
 
-    const descriptions = {
-        "Esprit": "L'Esprit ne pourras pas chasser pendant 180 secondes ( 3 minutes ) quand l'encens est consommé.",
-        "Spectre": "Le Spectre ne peux pas marcher dans le sel.",
-        "Fantôme": "Le Fantôme ne serra casiment pas visible en chasse.",
-        "Poltergeist": "Le Poltergeist peut lancer plusieurs objets à la fois et loin.",
-        "Banshee": "La Banshee cible une victime à la fois et peut aussi faire un cri spécial au microphone parabolique ( Depuis la nernière MAJ la Banshee à le skin féminin ).",
-        "Djinn": "Le Djinn ne peux pas couper le courant et accélère instantanément à la vue du joueur.",
-        "Cauchemar": "Le Cauchemar ne peux pas allumé de lumière, la télévison, les ordinateurs et le courant.",
-        "Revenant": "Le Revenant est très lent quand il n'a pas de joueur en vue et deviens extrêmement rapide à la vue du joueur.",
-        "Ombre": "L’Ombre ne peux pas bouger d'objet à côté du joueur et ne chasseras pas si le joueur est dans sa salle.",
-        "Démon": "Le Démon attaque plus fréquemment que les autres.",
-        "Yurei": "Le Yurei comment le trouver ?",
-        "Oni": "L’Oni est très actif et clignote rapidement lors des chasses.",
-        "Yokai": "Le Yokai il est sourd mdr.",
-        "Hantu": "Le Hantu est plus rapide dans les pièces froides.",
-        "Goryo": "Le Goryo ne peux pas changer de salle.",
-        "Myling": "Le Myling est plus silencieux lors de ses déplacements.",
-        "Onryo": "L’Onryo craint les flammes et attaque quand elles s’éteignent. Il suffit de 3 souffle pour lancer une chasse même à 100% de santé mental.",
-        "Les Jumeaux": "Les Jumeaux provoquent des événements à deux endroits différents. En chasse le vrai Jumeaux est légèrement plus lent qu'un fantôme basic et le faux Jumeaux est légèrement plus rapide qu'un fantôme basic.",
-        "Raiju": "Le Raiju devient plus rapide près d’appareils électroniques.",
-        "Obake": "L’Obake peut changer d’apparence pendant une chasse.",
-        "Le Mimic": "Le Mimic imite les capacités des autres fantômes. Il possèdent aussi un orbe même en sans preuve.",
-        "Moroï": "Le Moroï affaiblit la santé mentale et devient plus rapide. Il ralentit quand des médicaments sont consommés.",
-        "Deogen": "Le Deogen est lent mais sait toujours où est situé le joueur.",
-        "Thayé": "Le Thayé vieillit et devient moins actif au fil du temps. Il est rapide au plus jeune âge est devient de plus en plus lent ( Il devient vieux ) quand le joueur est dans sa salle."
-    };
+  const ghostProofs = {
+    "Esprit": ["EMF 5", "Écriture", "Spirit Box"],
+    "Spectre": ["DOTS", "Empreintes", "Température"],
+    "Fantôme": ["DOTS", "Orbe", "Écriture"],
+    "Poltergeist": ["Écriture", "Spirit Box", "Empreintes"],
+    "Banshee": ["DOTS", "Empreintes", "Orbe"],
+    "Djinn": ["EMF 5", "Empreintes", "Température"],
+    "Cauchemar": ["Écriture", "Orbe", "Spirit Box"],
+    "Revenant": ["Écriture", "Orbe", "Température"],
+    "Ombre": ["EMF 5", "Écriture", "DOTS"],
+    "Démon": ["Écriture", "Température", "Empreintes"],
+    "Yurei": ["Orbe", "Température", "DOTS"],
+    "Oni": ["EMF 5", "DOTS", "Température"],
+    "Yokai": ["Orbe", "DOTS", "Spirit Box"],
+    "Hantu": ["Température", "Empreintes", "Orbe"],
+    "Goryo": ["EMF 5", "DOTS", "Empreintes"],
+    "Myling": ["EMF 5", "Écriture", "Empreintes"],
+    "Onryo": ["Température", "Spirit Box", "Orbe"],
+    "Les Jumeaux": ["EMF 5", "Écriture", "Spirit Box"],
+    "Raiju": ["EMF 5", "Orbe", "DOTS"],
+    "Obake": ["Empreintes", "Orbe", "EMF 5"],
+    "Le Mimic": ["Spirit Box", "Empreintes", "Température"],
+    "Moroï": ["Spirit Box", "Écriture", "Température"],
+    "Deogen": ["Spirit Box", "Écriture", "DOTS"],
+    "Thayé": ["DOTS", "Orbe", "Écriture"]
+  };
 
-    ghostsInfo.forEach(li => {
-        li.addEventListener("click", () => {
-            const name = li.textContent.trim();
-            descriptionBox.textContent = descriptions[name] || "Pas de description disponible.";
-        });
+  evidenceButtons.forEach(button => {
+    button.dataset.state = "0";
+
+    button.addEventListener("click", () => {
+      let state = parseInt(button.dataset.state);
+      button.dataset.state = ((state + 1) % 3).toString();
+
+      button.classList.remove("selected", "crossed");
+      if (button.dataset.state === "1") button.classList.add("selected");
+      else if (button.dataset.state === "2") button.classList.add("crossed");
+
+      filterGhostsByProofs();
     });
+  });
 
-    let mode = 1;
+  function filterGhostsByProofs() {
+    const selected = [...evidenceButtons].filter(b => b.dataset.state === "1").map(b => b.dataset.proof);
+    const excluded = [...evidenceButtons].filter(b => b.dataset.state === "2").map(b => b.dataset.proof);
 
-    switchViewBtn.addEventListener("click", () => {
-        if (mode === 1) {
-            mode1.style.display = "none";
-            mode2.style.display = "block";
-            switchViewBtn.textContent = "Retour au Journal";
-            descriptionBox.textContent = "";
-            mode = 2;
-        } else {
-            mode2.style.display = "none";
-            mode1.style.display = "block";
-            switchViewBtn.textContent = "Ghost Huntin'";
-            mode = 1;
-        }
+    allGhosts.forEach(li => {
+      const name = li.textContent.trim();
+      const hasAllSelected = selected.every(p => ghostProofs[name]?.includes(p));
+      const hasAnyExcluded = excluded.some(p => ghostProofs[name]?.includes(p));
+
+      const visible = (selected.length === 0 && excluded.length === 0) || (hasAllSelected && !hasAnyExcluded);
+      li.style.opacity = visible ? "1" : "0.3";
     });
+  }
+
+  // === 4. Descriptions (mode 2 uniquement) ===
+  const ghostDescriptions = {
+    "Esprit": "L'Esprit ne pourra pas chasser pendant 180 secondes après l'encens.",
+    "Spectre": "Le Spectre ne marche pas dans le sel. Il peut suivre le joueur.",
+    "Fantôme": "Presque invisible en chasse. Il peut suivre le joueur.",
+    "Poltergeist": "Peut lancer plusieurs objets à la fois.",
+    "Banshee": "Cible un seul joueur à la fois. Elle peut laisser un cri spécial au micro parabolique. Elle peut suivre le joueur ( Ne peux que être en skin feminin ).",
+    "Djinn": "Ne coupe pas le courant. Accélère à la vue.",
+    "Cauchemar": "N’allume jamais rien. Il chasse uniquement dans le noir.",
+    "Revenant": "Très rapide s’il voit un joueur, sinon lent.",
+    "Ombre": "Ne chasse pas si le joueur est dans sa salle et ne bouge pas d'objet à côté du joueur.",
+    "Démon": "Très agressif, il chassera plus souvent que les autres fantômes. Quand un encens est consomé il ne pouras pas chasser pendant 60 secondes.",
+    "Yurei": "Comment le trouver ?",
+    "Oni": "Très actif, clignote vite. Fais perdre 25% de santé mental lors d'événement et ne peut pas faire l'événement du soufle.",
+    "Yokai": "Il est sourd mdr.",
+    "Hantu": "Rapide dans le froid. N'accélère pas à la vue du joueur.",
+    "Goryo": "Ne peux pas changer de salle, sortir de sa salle et commencer une chasse en dehors de sa salle.",
+    "Myling": "Très silencieux en déplacement. Il peut faire des cris au microphone parabolique plus souvent que les autres fantômes.",
+    "Onryo": "Craint les flammes. Chasse après 3 extinctions. Ne peut pas chasser si une flamme est allumé.",
+    "Les Jumeaux": "Le vrai Jumeaux et légèrement plus lent qu'un fantôme basic et le faux Jumeaux légèrement plus rapide qu'un fantôme basic.",
+    "Raiju": "Rapide près d’électroniques.",
+    "Obake": "Change d’apparence en chasse.",
+    "Le Mimic": "Imite les autres. A toujours un orbe.",
+    "Moroï": "Plus la santé mentale est basse plus il est rapide. Ralentit en prennant des médicaments.",
+    "Deogen": "Toujours sur votre trace. Il est très rapide et deviens très lent à proximité du joueur.",
+    "Thayé": "Rapide jeune, ralentit avec le temps. Il ne peut pas accélèrer."
+  };
+
+  document.querySelectorAll("#mode2 .ghost-list-info li").forEach(li => {
+    li.addEventListener("click", () => {
+      const name = li.textContent.trim();
+      const description = ghostDescriptions[name] || "Pas de description disponible.";
+      descriptionBox.textContent = description;
+      descriptionBox.style.display = "block";
+    });
+  });
 });
