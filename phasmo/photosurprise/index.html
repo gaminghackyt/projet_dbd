@@ -8,12 +8,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="journalPage" style="display: none;">
+    <iframe src="https://spectralreid.netlify.app/Journal/JournalPhasmo" width="100%" height="600px" style="border: none;"></iframe>
+    <button onclick="closeJournal()" class="option-close">Fermer</button>
+  </div>
+
+  <div id="settingsMenu" style="display: none;">
+    <h2 class="">Sélectionne les objets que tu veux inclure dans la roulette :</h2>
+    <div id="checkboxList" class="checkbox-container"></div>
+    <button onclick="closeSettings()" class="option-close">Fermer</button>
+  </div>
+
+  <div id="mainContent">
   <div class="text" id="welcomeText">
     <h2>Bienvenue sur la roue phasmophobia.</h2>
     <h2 class="un">Vous voulez pimentez vos games en sélectionnant un ou plusieurs objects aléatoirement ?</h2>
     <h2 class="une">Vous êtes au bon endroit. Vous avez juste à séléctionner le nombre d'objet que vous voulez et laisser le hasard vous donnez vos items</h2>
   </div>
   <div class="controls" id="selectContainer">
+    
+    <button class="option">⚙ Paramètres</button>
+    <button id="showEvidenceBtn">📄 Afficher le journal</button>
+    
     <select id="imageCount">
       <option value="">-- Nombre d'object --</option>
       <option value="1">1</option>
@@ -50,89 +66,7 @@
   <audio id="cameraSound" src="back/polaroid.wav" preload="auto"></audio>
 
   <div class="gallery" id="imageGallery"></div>
-
-  <script>
-    const allImages = [
-      "item/3Fte3.png",
-      "item/Cam.png",
-      "item/CapteurSonore.png",
-      "item/Crucifix.png",
-      "item/DetecteurDeMouvement.png",
-      "item/DOTS.png",
-      "item/Encens.png",
-      "item/LampeU.png",
-      "item/LecteurEMF.png",
-      "item/Livre.png",
-      "item/LumiereFeu.png",
-      "item/Mentale.png",
-      "item/MicrophoneParabolique.png",
-      "item/Sel.png",
-      "item/soundRecorder.png",
-      "item/SpiritBox.png",
-      "item/Thermo.png",
-      "item/Trepied.png",
-      "item/Allumeur.png",
-      "item/AppareilPhoto.png"
-    ];
-
-    const select = document.getElementById("imageCount");
-    const resetBtn = document.getElementById("resetBtn");
-    const camera = document.getElementById("cameraContainer");
-    const flash = document.getElementById("flash");
-    const sound = document.getElementById("cameraSound");
-    const gallery = document.getElementById("imageGallery");
-    const selectContainer = document.getElementById("selectContainer");
-    const welcomeText = document.getElementById("welcomeText");
-    
-    function generateImages() {
-      const count = parseInt(select.value);
-      if (!count || count < 1 || count > allImages.length) {
-        alert(`Choisis un nombre entre 1 et ${allImages.length} !`);
-        return;
-      }
-
-      welcomeText.style.display = "none";
-
-      camera.classList.add("active");
-
-      setTimeout(() => {
-        flash.classList.add("active");
-        sound.currentTime = 0;
-        sound.play();
-      }, 500);
-
-      setTimeout(() => {
-        flash.classList.remove("active");
-      }, 700);
-
-      setTimeout(() => {
-        camera.classList.remove("active");
-
-        gallery.innerHTML = "";
-
-        const shuffled = [...allImages].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, count);
-
-        selected.forEach((src, index) => {
-          const img = document.createElement("img");
-          img.src = src;
-          img.alt = "Objet Phasmo";
-          img.style.animationDelay = `${index * 0.1}s`;
-          gallery.appendChild(img);
-        });
-
-        selectContainer.style.display = "none";
-        resetBtn.style.display = "inline-block";
-      }, 1200);
-    }
-
-    function resetImages() {
-      gallery.innerHTML = "";
-      select.value = "";
-      selectContainer.style.display = "block";
-      resetBtn.style.display = "none";
-      welcomeText.style.display = "block";
-    }
-  </script>
+</div>
 </body>
+<script src="script.js"></script>
 </html>

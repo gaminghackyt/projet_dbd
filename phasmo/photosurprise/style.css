@@ -122,6 +122,75 @@ body {
       color: white;
     }
 
+#mainContent {
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+#mainContent.fade-out {
+  opacity: 0;
+  filter: brightness(0.3);
+  pointer-events: none;
+}
+
+#settingsMenu {
+  padding: 20px;
+  background-color: #111;
+  color: white;
+  text-align: center;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.checkbox-container img {
+  width: 270px;
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: filter 0.3s, border 0.3s;
+  border-radius: 6px;
+}
+
+.checkbox-container img.inactive {
+  filter: brightness(0.3) grayscale(1);
+  border: 2px solid #ff3e3e;
+  border: none;
+}
+
+.option-close {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 45%;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
 @media only screen and (max-width: 768px) {
     body {
         background: url(back/background\ photo\ surprise\ site\ phasmo.png);
