@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: url(image/Background-Main-default.jpg);
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#setup-container {
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      padding: 8px 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button {
+      background: #444;
+      color: white;
+    }
+
+    button:hover {
+      background: #666;
+    }
+
+    #build-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section, .perks {
+      display: flex;
+      gap: 10px;
+    }
+
+    .perk-slot, #power-slot, #addon-slot-1, #addon-slot-2, #offering-slot {
+      width: 80px;
+      height: 80px;
+      background: #333;
+      border: 2px solid #555;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    #perk-description {
+      margin-top: 20px;
+      padding: 10px;
+      background: #222;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+
+.btn {
+font-size: 1.1rem;
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+background: linear-gradient(270deg, red, blue, green, purple, red);
+background-size: 1000% 1000%;
+animation: neonBackground 5s ease infinite;
+border-radius: 5px;
+transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: black;
+}
+
+/* Animation du background */
+@keyframes neonBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.choix {
+  font-size: 2rem;
+  text-shadow: #ffcc00 1px 0 10px;
+  color: black; 
+}
+
+.type {
+font-size: 1.1rem;
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+background: linear-gradient(270deg, red, blue, green, purple, red);
+background-size: 1000% 1000%;
+animation: neonBackground 5s ease infinite;
+border-radius: 5px;
+transition: transform 0.2s;
+}
+
+option {
+  background: black;
+}
+
+.sup {
+  font-size: 2rem;
+  color: black;
+  text-shadow: #ffcc00 1px 0 10px;
+}
+
+label {
+  font-size: 2rem;
+  color: black;
+  text-shadow: #ffcc00 1px 0 10px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  margin: 5px;
+}

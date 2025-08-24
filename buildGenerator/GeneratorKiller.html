@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Generator Killer</title>
+    <link rel="shortcut icon" href="../icon site.png" type="image/x-icon">
+    <link rel="stylesheet" href="killer.css">
+</head>
+<body>
+    <div id="setup-container">
+        <!-- Étape 1 : choix du style -->
+        <div id="build-step-1">
+            <label for="build-type" class="choix">Choisis ton style de build :</label><br>
+            <select id="build-type" class="type">
+                <option value="fun">Build Fun</option>
+                <option value="aggressif">Build Aggressif</option>
+                <option value="meta">Build Meta</option>
+                <option value="troll">Build Troll</option>
+                <option value="random">Build Random</option>
+            </select><br>
+            <button id="next-btn" class="btn">Suivant</button>
+        </div>
+
+        <!-- Étape 2 : options -->
+        <div id="build-step-2" style="display: none;">
+            <p class="sup">Options supplémentaires :</p><br>
+            <label>
+                <input type="checkbox" id="random-killer" checked>
+                Killer aléatoire
+            </label><br><br>
+            <label>
+                <input type="checkbox" id="random-offering" checked>
+                Offrande aléatoire
+            </label><br>
+            <button id="generate-btn" class="btn">Générer le build</button>
+        </div>
+    </div>
+
+    <!-- Étape 3 : résultat -->
+    <div id="build-container" style="display: none;">
+        <div class="section">
+            <div id="power-slot"></div>
+            <div id="addon-slot-1"></div>
+            <div id="addon-slot-2"></div>
+            <div id="offering-slot"></div>
+        </div>
+
+        <div class="perks">
+            <div class="perk-slot" id="perk1"></div>
+            <div class="perk-slot" id="perk2"></div>
+            <div class="perk-slot" id="perk3"></div>
+            <div class="perk-slot" id="perk4"></div>
+        </div>
+
+        <!-- Bloc de description dynamique -->
+        <div id="description-box">
+            <div id="power-description"></div>
+            <div id="addon-description"></div>
+            <div id="offering-description"></div>
+            <div id="perk-description"></div>
+        </div><br><br>
+
+        <!-- Résumé du build -->
+        <div id="build-summary"></div>
+
+        <!-- Bouton retour -->
+        <button id="back-btn" class="btn">Choisir un autre build</button>
+    </div>
+</body>
+<script src="killer.js"></script>
+<script src="../Auth.js"></script>
+</html>

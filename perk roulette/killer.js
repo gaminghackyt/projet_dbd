@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const settingsMenu = document.getElementById("settings-menu");
     const perkList = document.getElementById("perk-list");
     const saveSettingsBtn = document.getElementById("save-settings");
+    const searchInput = document.getElementById("search-perk");
+    const toggleAllBtn = document.getElementById("toggle-all");
     const slots = document.querySelectorAll(".slot");
     const backgrounds = document.querySelectorAll(".slot-container");
 
@@ -133,6 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Sort : Euphorie de la Chasse", image: "imagesk/commun10.png" },
         { name: "Sort : Personne n'Échappe à la Mort", image: "imagesk/commun11.png" },
         { name: "Murmures", image: "imagesk/commun12.png" },
+        { name: "Détraqué", image: "imagesk/springtrap1.png" },
+        { name: "Aide recherchée", image: "imagesk/springtrap2.png" },
+        { name: "Peur fantôme", image: "imagesk/springtrap3.png" }
     ];
 
     let activePerks = [...perks];
@@ -141,59 +146,91 @@ document.addEventListener("DOMContentLoaded", function () {
         settingsMenu.classList.toggle("hidden");
     });
 
-    perks.forEach((perk, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <img src="${perk.image}" alt="${perk.name}">
-            <input type="checkbox" id="perk-${index}" checked>
-            <label for="perk-${index}">${perk.name}</label>
-        `;
-        perkList.appendChild(li);
+    function renderPerkList(filteredPerks = perks) {
+        perkList.innerHTML = "";
+        filteredPerks.forEach((perk, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <img src="${perk.image}" alt="${perk.name}">
+                <input type="checkbox" id="perk-${index}" data-index="${perks.indexOf(perk)}" checked>
+                <label for="perk-${index}">${perk.name}</label>
+            `;
+            perkList.appendChild(li);
+        });
+    }
+
+    renderPerkList();
+
+    // 🔎 Recherche par perk OU personnage
+    searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = perks.filter(perk =>
+        perk.name.toLowerCase().includes(query) ||
+        (perk.character && perk.character.toLowerCase().includes(query)) ||
+        perk.image.toLowerCase().includes(query) // bonus : si tu tapes "evan" ça marche grâce au nom du fichier
+    );
+    renderPerkList(filtered);
+});
+
+    // ✅ Tout cocher / décocher
+    toggleAllBtn.addEventListener("click", () => {
+        const checkboxes = document.querySelectorAll("#perk-list input[type='checkbox']");
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+
+        checkboxes.forEach(cb => cb.checked = !allChecked);
+
+        toggleAllBtn.textContent = allChecked ? "Tout cocher" : "Tout décocher";
     });
 
     saveSettingsBtn.addEventListener("click", () => {
         const checkboxes = document.querySelectorAll("#perk-list input[type='checkbox']");
-        activePerks = perks.filter((_, index) => checkboxes[index].checked);
+        activePerks = perks.filter((_, index) =>
+            Array.from(checkboxes).some(cb => cb.dataset.index == index && cb.checked)
+        );
         alert("Réglages sauvegardés !");
         settingsMenu.classList.add("hidden");
     });
 
     function startSlotMachine() {
+        let availablePerks = [...activePerks];
+
         slots.forEach((slot, index) => {
             slot.classList.add("rolling");
-    
+
             if (!slot.querySelector(".perk-name")) {
                 const nameDiv = document.createElement("div");
                 nameDiv.classList.add("perk-name");
                 slot.appendChild(nameDiv);
             }
-    
+
             if (!slot.querySelector("img")) {
                 const imgElement = document.createElement("img");
                 slot.appendChild(imgElement);
             }
-    
+
             const spinTime = 2000 + index * 500;
-    
+
             const interval = setInterval(() => {
                 const randomPerk = activePerks[Math.floor(Math.random() * activePerks.length)];
                 const img = slot.querySelector("img");
                 const name = slot.querySelector(".perk-name");
-    
+
                 img.src = randomPerk.image;
                 name.textContent = randomPerk.name;
             }, 100);
-    
+
             setTimeout(() => {
                 clearInterval(interval);
-    
-                const finalPerk = activePerks[Math.floor(Math.random() * activePerks.length)];
+
+                const randomIndex = Math.floor(Math.random() * availablePerks.length);
+                const finalPerk = availablePerks.splice(randomIndex, 1)[0];
+
                 const img = slot.querySelector("img");
                 const name = slot.querySelector(".perk-name");
-    
+
                 img.src = finalPerk.image;
                 name.textContent = finalPerk.name;
-    
+
                 slot.classList.remove("rolling");
                 slot.classList.add("final");
             }, spinTime);

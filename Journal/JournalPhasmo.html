@@ -7,11 +7,18 @@
   <link rel="stylesheet" href="menu.css" />
 </head>
 <body>
+  <div id="introScreen">
+    <div class="intro-content">
+      <h1>Phasmophobia</h1>
+      <p class="intro-text">Bienvenue dans le journal des entités surnaturelles</p>
+      <p class="animated-text">Cliquez sur le livre pour commencer</p>
+    </div>
+    <img id="bookClosed" src="livre_fermé.png" alt="Livre fermé" />
+    <img id="bookOpen" src="livre_ouvert.png" alt="Livre ouvert" style="display: none;" />
+  </div>
 
-  <div class="book-container">
+  <div class="book-container hidden">
     <div class="book-content">
-
-      <!-- PAGE GAUCHE -->
       <div class="left-page">
         <button id="switchViewBtn">
           <img src="scotch.png" alt="Ghost Huntin'" class="scotch" />
@@ -39,7 +46,6 @@
         </div>
       </div>
 
-      <!-- PAGE DROITE -->
       <div class="right-page">
         <div id="mode1">
           <ul class="ghost-list">
@@ -53,7 +59,6 @@
             <li>Moroï</li><li>Deogen</li><li>Thayé</li>
           </ul>
         </div>
-
         <div id="mode2" style="display: none;">
           <ul class="ghost-list-info">
             <li>Esprit</li><li>Spectre</li><li>Fantôme</li>
@@ -69,7 +74,7 @@
       </div>
     </div>
   </div>
-
-  <script src="menu.js"></script>
 </body>
+<script src="menu.js"></script>
+<script src="../Auth.js"></script>
 </html>

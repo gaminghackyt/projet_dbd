@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape the Haunt - Niveau 1</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+    #game {
+      padding: 2rem;
+    }
+    #skill-check {
+      position: relative;
+      width: 300px;
+      height: 30px;
+      margin: 2rem auto;
+      background-color: #333;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    #zone-verte {
+      position: absolute;
+      left: 40%;
+      width: 20%;
+      height: 100%;
+      background-color: green;
+    }
+    #curseur {
+      position: absolute;
+      width: 5%;
+      height: 100%;
+      background-color: red;
+      animation: deplacement 2s linear infinite;
+    }
+    @keyframes deplacement {
+      0% { left: 0; }
+      100% { left: 95%; }
+    }
+    #cadenas-section, #resultat, #peur {
+      margin-top: 2rem;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <h1>Escape the Haunt - Niveau 1</h1>
+    <p>Répare le générateur</p>
+    <div id="skill-check">
+      <div id="zone-verte"></div>
+      <div id="curseur"></div>
+    </div>
+    <button onclick="verifierSkillCheck()">Appuie !</button>
+
+    <div id="cadenas-section">
+      <p>Déverrouille la porte (indice : somme de 3 et 4)</p>
+      <input type="text" id="cadenas-input" maxlength="3">
+      <button onclick="verifierCadenas()">Valider</button>
+    </div>
+
+    <div id="resultat"></div>
+    <div id="peur">Niveau de peur : <span id="niveau-peur">0</span>%</div>
+  </div>
+
+  <script>
+    let peur = 0;
+
+    function verifierSkillCheck() {
+      const curseur = document.getElementById('curseur');
+      const curseurRect = curseur.getBoundingClientRect();
+      const zoneVerte = document.getElementById('zone-verte').getBoundingClientRect();
+
+      if (curseurRect.left >= zoneVerte.left && curseurRect.right <= zoneVerte.right) {
+        alert('Succès ! Générateur réparé ✅');
+      } else {
+        alert('Échec ! Le fantôme se rapproche... 👻');
+        peur += 10;
+        document.getElementById('niveau-peur').textContent = peur;
+      }
+    }
+
+    function verifierCadenas() {
+      const val = document.getElementById('cadenas-input').value;
+      if (val === "7") {
+        document.getElementById('resultat').textContent = "✔️ Tu as déverrouillé la porte !";
+      } else {
+        document.getElementById('resultat').textContent = "❌ Mauvais code...";
+        peur += 10;
+        document.getElementById('niveau-peur').textContent = peur;
+      }
+    }
+
+    // Service Worker pour PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log("Service Worker enregistre"))
+        .catch(err => console.error("Erreur SW", err));
+    }
+  </script>
+</body>
+</html>

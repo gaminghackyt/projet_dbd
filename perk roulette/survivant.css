@@ -210,6 +210,10 @@ body {
     margin-right: 5px;
 }
 
+.search-perk {
+    width: 50%;
+}
+
 @media screen and (max-width: 768px) {
     body {
         background: cover;

@@ -27,11 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ]
       },
       {
-        name: "Grafton Farmhouse",
+        name: "Grafton Farmhouse Rework",
         maison: ["https://s3.phasmophobia.su/knowledge-base/maps/grafton-farmhouse.webp"],
         decoupe: [
-            "https://www.phasmophobia-fr.com/wp-content/uploads/2022/11/Grafton-rdc.png",
-            "https://www.phasmophobia-fr.com/wp-content/uploads/2022/11/Grafton-etage.png"
+            "graftonFarmeHouseRework.png"
         ]
       },
       {
@@ -144,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         details.appendChild(title);
       
         for (const [key, value] of Object.entries(map)) {
-          if (key === "name") continue; // On saute le nom puisqu'il est déjà affiché
+          if (key === "name") continue;
       
           const block = document.createElement("div");
           block.style.marginTop = "20px";
@@ -184,11 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
       maps.forEach((map, index) => {
         const mapBtn = document.createElement("button");
         mapBtn.textContent = `${index + 1}. ${map.name}`;
-        mapBtn.style.fontFamily = "'Orbitron', sans-serif";
+        mapBtn.style.fontFamily = "Georgia, 'Times New Roman', Times, serif";
         mapBtn.style.fontSize = "1.3rem";
-        mapBtn.style.color = "#7FFFD4";
-        mapBtn.style.background = "#111";
-        mapBtn.style.padding = "10px";
+        mapBtn.style.color = "#ffffffff";
+        mapBtn.style.background = "#222";
+        mapBtn.style.padding = "8px";
         mapBtn.style.margin = "5px";
         mapBtn.style.borderRadius = "5px";
         mapBtn.style.cursor = "pointer";
@@ -200,7 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const details = document.createElement("div");
       details.id = "map-details";
-      details.style.marginTop = "20px";
+      details.style.marginTop = "10px";
+      details.style.maxWidth = "50%"
       section.appendChild(details);
 
       await fadeIn(section);

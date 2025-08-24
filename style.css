@@ -168,6 +168,17 @@ header {
     cursor: pointer;
 }
 
+.formulaire {
+    background-color: rgb(151, 134, 2);
+    border-radius: 10px;
+    padding: 1%;
+    width: 8rem;
+}
+
+.formulaire:hover {
+    background: none;
+}
+
 /* .overlay {
     position: absolute;
     top: 0;

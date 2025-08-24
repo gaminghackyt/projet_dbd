@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         name: "Banshee",
-        description: ["• Cible un joueur au hasard au début de la partie, et change de cible qu'une fois qu'il meurt ou quitte la partie.", "• Chasse uniquement le joueur ciblé s'il se trouve dans la maison, sinon chasse n'importe qu'elle joueur comme une entité normale.", "• A 67% de chances de se déplacer vers sa cible en dehors d'une chasse (ne fonctionne pas à travers les étages, sauf sur Point Hope ou si l'entité est à la cave ou grenier de la Bleasdale).", "• Le joueur ciblé pert 15% de santé de santé mentale lors d'un événement chantant s'il entre en contact avec la Banshee (contre 10% pour les autres).", "• A plus de chance de réaliser un événement chantant.", "• A 33% de chance d'effectuer un cri spéciales au micro parabolique.", "• Ne peut pas changer de se salle favorite sauf avec le voeu d'être sain d'esprit de la patte de singe (monkey paw)"],
+        description: ["• Cible un joueur au hasard au début de la partie, et change de cible qu'une fois qu'il meurt ou quitte la partie.", "• Chasse uniquement le joueur ciblé s'il se trouve dans la maison, sinon chasse n'importe qu'elle joueur comme une entité normale.", "• A 67% de chances de se déplacer vers sa cible en dehors d'une chasse (ne fonctionne pas à travers les étages, sauf sur Point Hope ou si l'entité est à la cave ou grenier de la Bleasdale).", "• Le joueur ciblé pert 15% de santé de santé mentale lors d'un événement chantant s'il entre en contact avec la Banshee (contre 10% pour les autres).", "• A plus de chance de réaliser un événement chantant.", "• A 33% de chance d'effectuer un de c'est cri spéciales sur les vingts au micro parabolique ou à l'enregistreur de son."],
         chasse: "A partir de 50% (santé mentale de la cible SEULEMENT)",
         vitesse: "1.7 m/s (base)\n2.8 m/s (accélération max)",
         preuves: ["EMF 5", "Orbe fantomatique", "Ultraviolet"]
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         name: "Yurei",
-        description: ["• Le pouvoir du Yurei est de fermer UNE porte autour de lui sans événement paranormal.", "• Il peut faire une double intéraction sur la porte (pouvoir), que vous pouvez visualiser avec l'EMF T3.", "• Le Yurei vous enlèvera 15% de santé mentale en faisant son pouvoir si vous êtes proches de lui.", "• Brûler un encens dans la maison, en plus d'empêcher les chasses et d'augmenter temporairement l'activité, le fera retourner dans sa pièce favorite et le piègera 90 secondes.", "⚠ Cela ne sert pas à prouver le Yurei mais plutôt à l'invalidé s'il sort de sa salle avant ce timer! Toutes les entités peuvent ne pas sortir de la salle durant se temps."],
+        description: ["• Il peut faire une double intéraction sur la porte (pouvoir), que vous pouvez visualiser avec l'EMF T3.", "• Le Yurei vous enlèvera 15% de santé mentale en faisant son pouvoir si vous êtes proches de lui.", "• Brûler un encens dans la maison, en plus d'empêcher les chasses et d'augmenter temporairement l'activité, le fera retourner dans sa pièce favorite et le piègera 90 secondes.", "⚠ Cela ne sert pas à prouver le Yurei mais plutôt à l'invalidé s'il sort de sa salle avant ce timer! Toutes les entités peuvent ne pas sortir de la salle durant se temps."],
         chasse: "A partir de 50%",
         vitesse: "1.7 m/s (base)\n2.8 m/s (accelération max)",
         preuves: ["Orbe fantomatique", "Températures glaciales", "Projecteur D.O.T.S"]
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
       details.appendChild(title);
 
       const descList = document.createElement("ul");
-      descList.style.color = "#36ff00";
+      descList.style.color = "#fff700ff";
       descList.style.fontSize = "1.5rem";
       descList.style.marginTop = "3%"
       ghost.description.forEach((desc) => {
@@ -255,11 +255,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ghosts.forEach((ghost, index) => {
         const ghostBtn = document.createElement("button");
         ghostBtn.textContent = `${index + 1}. ${ghost.name}`;
-        ghostBtn.style.fontFamily = "'Orbitron', sans-serif";
+        ghostBtn.style.fontFamily = "Georgia, 'Times New Roman', Times, serif";
         ghostBtn.style.fontSize = "1.3rem";
-        ghostBtn.style.color = "#7FFFD4";
-        ghostBtn.style.background = "#111";
-        ghostBtn.style.padding = "10px";
+        ghostBtn.style.color = "#ffffffff";
+        ghostBtn.style.background = "#222";
+        ghostBtn.style.padding = "8px";
         ghostBtn.style.margin = "5px";
         ghostBtn.style.borderRadius = "5px";
         ghostBtn.style.cursor = "pointer";

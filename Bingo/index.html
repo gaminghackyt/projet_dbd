@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectralreid, Streamer horreur & simulation</title>
+    <link rel="icon" href="../phasmo/icons8-phasmophobie-du-jeu-48.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="maps-container">
+            <div class="map" onclick="selectMap('Tanglewood Street')">6 Tanglewood Street</div>
+            <div class="map" onclick="selectMap('Edgefield Road')">42 Edgefield Road</div>
+            <div class="map" onclick="selectMap('Ridgeview Court')">10 Ridgeview Court</div>
+            <div class="map" onclick="selectMap('Willow Street')">13 Willow Street</div>
+            <div class="map" onclick="selectMap('Bleasdale Farmhouse')">Bleasdale Farmhouse</div>
+            <div class="map" onclick="selectMap('Grafton Farmhouse')">Grafton Farmhouse</div>
+            <div class="map" onclick="selectMap('Maple Lodge Campsite')">Maple Lodge Campsite</div>
+            <div class="map" onclick="selectMap('Camp Woodwind')">Camp Woodwind</div>
+            <div class="map" onclick="selectMap('Sunny Meadows')">Sunny Meadows</div>
+            <div class="map" onclick="selectMap('Sunny Meadows - Restricted')">Sunny Meadows - Restricted</div>
+            <div class="map" onclick="selectMap('Prison')">Prison</div>
+            <div class="map" onclick="selectMap('Brownstone High School')">Brownstone High School</div>
+            <div class="map" onclick="selectMap('Point Hope')">Point Hope</div>
+            <div class="map" onclick="selectMap('Random')">Random</div>
+        </div>
+        <div id="map-details"></div>
+    </div>
+    <div id="bingo-overlay" class="overlay hidden">
+    <div class="overlay-header">
+        <button id="close-overlay">❌</button>
+    </div>
+    <canvas id="bingo-canvas" width="600" height="600"></canvas>
+    <div id="score-board" class="hidden">
+        <h3>🎯 Score</h3>
+        <p>Nombre de Bingo : <span id="bingo-count">0</span></p>
+    </div>
+    <div id="bingo-animation" class="hidden">🎉 BINGO <span id="bingo-number">1</span> 🎉</div>
+</body>
+<script src="script.js"></script>
+<script src="../Auth.js"></script>
+</html>
